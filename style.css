@@ -15,7 +15,7 @@ body {
     background-color: rgba(225, 238, 255, 0.7); /* آبی شفاف */
     color: #333;
     text-align: center;
-    padding: 20px;
+    padding: 50px 40px 40px 40px; /* افزایش padding بالا */
     direction: rtl;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
