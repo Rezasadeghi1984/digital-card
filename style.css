@@ -1,4 +1,5 @@
-﻿@font-face {
+﻿/* فونت‌ها */
+@font-face {
     font-family: 'Vazir';
     src: url('fonts/Vazir.woff2') format('woff2');
 }
@@ -8,17 +9,15 @@
     src: url('fonts/Titr.woff2') format('woff2');
 }
 
+/* بدنه اصلی */
 body {
     font-family: 'Vazir', sans-serif;
-    background-color: #f9f9f9;
+    background-color: rgba(240, 248, 255, 0.6); /* آبی خیلی روشن با شفافیت */
     color: #333;
     text-align: center;
     padding: 20px;
     direction: rtl;
-
-    background-color: rgba(240, 248, 255, 0.6); /* آبی خیلی روشن با شفافیت */
     border-radius: 12px;
-    padding: 20px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
@@ -26,17 +25,20 @@ body {
     margin: auto;
 }
 
+/* هدر */
 header {
     margin-bottom: 20px;
 }
 
-#logo {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    margin-bottom: 10px;
+.logo {
+    width: 140px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 10px auto;
 }
 
+/* تیترها */
 h1, h2 {
     font-family: 'Titr', sans-serif;
     margin: 0;
@@ -52,8 +54,9 @@ h2 {
     margin: 5px 0 20px 0;
 }
 
+/* اطلاعات تماس */
 #contact p {
-    color: #6b4f3f; /* قهوه‌ای ملایم برای متن داخل <p> */
+    color: #6b4f3f;
     font-size: 16px;
     margin: 8px 0;
     direction: ltr;
@@ -61,13 +64,14 @@ h2 {
 }
 
     #contact p a {
-        color: #000000 !important; /* مشکی برای لینک‌ها */
+        color: #000000 !important;
         text-decoration: none;
     }
 
         #contact p a:hover {
             text-decoration: underline;
         }
+
 #contact a {
     color: #007bff;
     text-decoration: none;
@@ -77,23 +81,8 @@ h2 {
         text-decoration: underline;
     }
 
-#social img {
-    width: 40px;
-    height: 40px;
-    margin: 0 10px;
-    cursor: pointer;
-}
-
-footer {
-    margin-top: 30px;
-}
-
-    footer img {
-        width: 120px;
-        height: 120px;
-    }
-
-#social img {
+/* شبکه‌های اجتماعی */
+.social-icon {
     width: 40px;
     height: 40px;
     margin: 0 10px;
@@ -101,6 +90,19 @@ footer {
     transition: transform 0.2s;
 }
 
-    #social img:hover {
+    .social-icon:hover {
         transform: scale(1.1);
     }
+
+/* QR Code */
+footer {
+    margin-top: 30px;
+}
+
+.qr {
+    width: 160px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
