@@ -1,20 +1,21 @@
 ﻿@font-face {
-    font-family: 'Vazirmatn-FD-Black';
+    font-family: 'Vazir';
     src: url('fonts/Vazir.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: 'BTITRBD';
+    font-family: 'Titr';
     src: url('fonts/Titr.woff2') format('woff2');
 }
 
 body {
-    font-family: 'Vazirmatn-FD-Black', sans-serif;
+    font-family: 'Vazir', sans-serif;
     background-color: #f9f9f9;
     color: #333;
     text-align: center;
     padding: 20px;
     direction: rtl;
+
     background-color: rgba(240, 248, 255, 0.6); /* آبی خیلی روشن با شفافیت */
     border-radius: 12px;
     padding: 20px;
@@ -37,7 +38,7 @@ header {
 }
 
 h1, h2 {
-    font-family: 'BTITRBD', sans-serif;
+    font-family: 'Titr', sans-serif;
     margin: 0;
 }
 
