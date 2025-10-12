@@ -100,9 +100,25 @@ footer {
 }
 
 .qr {
-    width: 160px;
+    width: 140px;
     height: auto;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 10px auto;
     object-fit: contain;
 }
+.email {
+    color: #6b4f3f;
+    font-size: 16px;
+    margin: 15px 0 0 0;
+    direction: ltr;
+    unicode-bidi: plaintext;
+}
+
+    .email a {
+        color: #000000 !important;
+        text-decoration: none;
+    }
+
+        .email a:hover {
+            text-decoration: underline;
+        }
