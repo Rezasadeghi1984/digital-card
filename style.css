@@ -5,7 +5,7 @@
 }
 
 @font-face {
-    font-family: 'Titr';
+    font-family: 'Dima Sogand new';
     src: url('fonts/Titr.woff2') format('woff2');
 }
 
@@ -21,17 +21,18 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
-    max-width: 300px;
+    max-width: 380px;
     margin: auto;
+    transform: scale(1.05);
 }
 
 /* هدر */
 header {
-    margin-bottom: 20px;
+    margin-bottom: 2px;
 }
 
 .logo {
-    width: 140px;
+    width: 190px;
     height: auto;
     object-fit: contain;
     display: block;
@@ -40,24 +41,24 @@ header {
 
 /* تیترها */
 h1, h2 {
-    font-family: 'Titr', sans-serif;
+    font-family: 'Dima Sogand new', sans-serif;
     margin: 0;
+    color: #324177;
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 50px;
 }
 
 h2 {
-    font-size: 18px;
-    color: #666;
+    font-size: 50px;
     margin: 5px 0 20px 0;
 }
 
 /* اطلاعات تماس */
 #contact p {
-    color: #6b4f3f;
-    font-size: 16px;
+    color: #324177;
+    font-size: 21px;
     margin: 8px 0;
     direction: ltr;
     unicode-bidi: plaintext;
@@ -83,9 +84,9 @@ h2 {
 
 /* شبکه‌های اجتماعی */
 .social-icon {
-    width: 40px;
-    height: 40px;
-    margin: 0 10px;
+    width: 45px;
+    height: 45px;
+    margin: 0 12px;
     cursor: pointer;
     transition: transform 0.2s;
 }
@@ -96,29 +97,30 @@ h2 {
 
 /* QR Code */
 footer {
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .qr {
-    width: 140px;
+    width: 160px;
     height: auto;
     display: block;
     margin: 0 auto 10px auto;
     object-fit: contain;
 }
-.email {
-    color: #6b4f3f;
-    font-size: 16px;
-    margin: 15px 0 0 0;
+.website {
+    color: #000000;
+    font-size: 20px; /* بزرگتر */
+    margin: 17px 0 0 0;
     direction: ltr;
     unicode-bidi: plaintext;
 }
 
-    .email a {
+    .website a {
         color: #000000 !important;
         text-decoration: none;
+        font-size: 20px; /* بزرگتر */
     }
 
-        .email a:hover {
+        .website a:hover {
             text-decoration: underline;
         }
