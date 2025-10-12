@@ -1,0 +1,105 @@
+﻿@font-face {
+    font-family: 'Vazirmatn-FD-Black';
+    src: url('fonts/Vazir.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'BTITRBD';
+    src: url('fonts/Titr.woff2') format('woff2');
+}
+
+body {
+    font-family: 'Vazirmatn-FD-Black', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    direction: rtl;
+    background-color: rgba(240, 248, 255, 0.6); /* آبی خیلی روشن با شفافیت */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    max-width: 300px;
+    margin: auto;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+#logo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+h1, h2 {
+    font-family: 'BTITRBD', sans-serif;
+    margin: 0;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 18px;
+    color: #666;
+    margin: 5px 0 20px 0;
+}
+
+#contact p {
+    color: #6b4f3f; /* قهوه‌ای ملایم برای متن داخل <p> */
+    font-size: 16px;
+    margin: 8px 0;
+    direction: ltr;
+    unicode-bidi: plaintext;
+}
+
+    #contact p a {
+        color: #000000 !important; /* مشکی برای لینک‌ها */
+        text-decoration: none;
+    }
+
+        #contact p a:hover {
+            text-decoration: underline;
+        }
+#contact a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+    #contact a:hover {
+        text-decoration: underline;
+    }
+
+#social img {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+footer {
+    margin-top: 30px;
+}
+
+    footer img {
+        width: 120px;
+        height: 120px;
+    }
+
+#social img {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+    #social img:hover {
+        transform: scale(1.1);
+    }
