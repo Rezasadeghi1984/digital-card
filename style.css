@@ -273,11 +273,15 @@
 
 .social-container {
     display: flex;
-    gap: 39px;
+    justify-content: space-around;
+    align-items: center;
     background-color: #e8d8b6;
-    padding: 10px 35px;
+    padding: 15px 10px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 350px;
+    box-sizing: border-box;
 }
 
 .social-item {
@@ -309,15 +313,22 @@
 
 .website-link {
     font-family: 'Vazir', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 32px;
+    font-size: 1.3rem;
     color: #333;
     text-decoration: none;
     font-weight: bold;
     background-color: #e8d8b6;
-    padding: 10px 23px;
+    padding: 15px 20px;
     border-radius: 10px;
     transition: all 0.3s ease;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 350px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
     .website-link:hover {
@@ -330,23 +341,26 @@
     display: flex;
     justify-content: center;
     margin: 10px 0;
-    padding: 0 20px;
 }
 
 .address-link {
     font-family: 'Vazir', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 21px;
+    font-size: 1rem;
     color: #333;
     text-decoration: none;
     font-weight: bold;
     background-color: #e8d8b6;
-    padding: 15px 35px;
+    padding: 15px 20px;
     border-radius: 10px;
     transition: all 0.3s ease;
     text-align: center;
-    display: block;
-    width: fit-content;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 350px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
     .address-link:hover {
@@ -354,7 +368,6 @@
         background-color: #8b4513;
         transform: scale(1.05);
     }
-
 .qrcode-section {
     display: flex;
     justify-content: center;
