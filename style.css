@@ -28,7 +28,7 @@ body {
 
 /* هدر */
 header {
-    margin-bottom: 2px;
+    margin-bottom: 10px;
 }
 
 .logo {
@@ -36,7 +36,7 @@ header {
     height: auto;
     object-fit: contain;
     display: block;
-    margin: 0 auto 10px auto;
+    margin: 0 auto 0px auto; /* کاهش فاصله زیر لوگو */
 }
 
 /* تیترها */
@@ -58,7 +58,7 @@ h2 {
 /* اطلاعات تماس */
 #contact p {
     color: #324177;
-    font-size: 22px;
+    font-size: 25px;
     margin: 8px 0;
     direction: ltr;
     unicode-bidi: plaintext;
