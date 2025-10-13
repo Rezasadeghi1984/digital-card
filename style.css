@@ -4,173 +4,49 @@
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    padding: 10px;
-    background-color: #f0f0f0; /* رنگ پس‌زمینه اختیاری */
-}
-.business-card {
-    width: 500px;
-    background-color: #f5f5dc;
-    border-radius: 15px;
-    padding: 10px;
-    font-family: 'Dima Sogand new', Tahoma, Geneva, Verdana, sans-serif;
-    direction: rtl;
-
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-    background-color: #e8d8b6;
-    border-radius: 10px;
-    margin-bottom: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.right-section {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.left-icons {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    body
-
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 5px;
+    padding: 15px;
     background-color: #f0f0f0;
+    box-sizing: border-box;
 }
 
 .business-card {
     width: 95vw;
-    max-width: 400px;
+    max-width: 420px;
     background-color: #f5f5dc;
     border-radius: 15px;
-    padding: 15px;
+    padding: 10px;
     font-family: 'Dima Sogand new', Tahoma, Geneva, Verdana, sans-serif;
     direction: rtl;
     box-sizing: border-box;
 }
 
+/* هدر */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 8px 10px; /* کاهش از 15px به 8px (عمودی) */
     background-color: #e8d8b6;
     border-radius: 10px;
     margin-bottom: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 99%;
+    max-width: 400px;
+    box-sizing: border-box;
+    margin-right: auto;
+    margin-left: auto;
+    box-sizing: border-box;
 }
 
-.profile-pic {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #8b4513;
-}
-
-.name {
-    margin: 0;
-    font-size: 1.4rem;
-    color: #333;
-    font-weight: bold;
-}
-
-.import-text {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #333;
-    margin: 10px 0;
-    font-weight: bold;
-}
-
-.phone-link {
-    font-size: 1.1rem;
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.phone-item {
+.right-section {
     display: flex;
     align-items: center;
-    background-color: #e8d8b6;
-    padding: 10px 20px;
-    border-radius: 10px;
-    gap: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    margin: 8px 0;
-}
-
-.social-icon {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    border-radius: 8px;
-}
-
-.website-link {
-    font-size: 1rem;
-    padding: 10px 20px;
-}
-
-.address-link {
-    font-size: 0.9rem;
-    padding: 10px 15px;
-}
-
-.qrcode {
-    width: 200px;
-    height: 200px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-}
-
-/* Media Query برای موبایل‌های بسیار کوچک */
-@media (max-width: 360px) {
-    .business-card {
-        width: 100vw;
-        border-radius: 0;
-        padding: 10px;
-    }
-
-    .profile-pic {
-        width: 60px;
-        height: 60px;
-    }
-
-    .name {
-        font-size: 1.2rem;
-    }
-
-    .qrcode {
-        width: 150px;
-        height: 150px;
-    }
-}
-
-/* Media Query برای تبلت‌ها */
-@media (min-width: 768px) {
-    .business-card {
-        max-width: 450px;
-    }
-}
+    gap: 12px; /* کاهش از 15px به 12px */
 }
 
 .profile-pic {
-    width: 100px;
-    height: 100px;
+    width: 85px; /* کاهش جزئی از 90px */
+    height: 85px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #8b4513;
@@ -178,23 +54,37 @@
 
 .name-section {
     text-align: right;
+    line-height: 1.2; /* کاهش از 1.3 به 1.2 */
 }
 
 .name {
     margin: 0;
-    font-size: 28px;
+    font-size: 2.2rem; /* فونت بزرگ حفظ شد */
     color: #333;
     font-weight: bold;
-    font-family: 'Dima Sogand new', Tahoma, Geneva, Verdana, sans-serif;
+    display: block;
 }
 
-.lion-icon {
-    font-size: 23px;
-    color: #8b4513;
+.subtitle {
+    margin: 0;
+    font-size: 2.0rem; /* فونت بزرگ حفظ شد */
+    color: #666;
+    display: block;
+    margin-top: 3px; /* کاهش از 5px به 3px */
 }
+.lion-icon {
+    font-size: 2.4rem; /* کاهش از 2.8rem به 2.4rem */
+    color: #8b4513;
+    margin-right: 5px;
+}
+
+    .lion-icon:hover {
+        transform: scale(1.1);
+        color: #654321;
+    }
 
 .share-icon {
-    font-size: 34px;
+    font-size: 1.6rem; /* کاهش از 1.8rem به 1.6rem */
     color: #8b4513;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -203,6 +93,8 @@
     .share-icon:hover {
         transform: scale(1.1);
     }
+
+/* لوگو */
 .logo-container {
     display: flex;
     justify-content: center;
@@ -212,50 +104,58 @@
 }
 
 .logo {
-    max-width: 300px;
-    max-height: 200px;
+    max-width: 280px;
+    max-height: 180px;
     width: auto;
     height: auto;
 }
+
+/* متن واردات */
 .import-text {
     text-align: center;
     font-family: 'Dima Sogand new', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 36px;
+    font-size: 1.5rem;
     color: #333;
-    margin: 15px 0;
+    margin: 0px 0;
     font-weight: bold;
 }
+
+/* تلفن‌ها */
 .phone-section {
     display: flex;
     justify-content: center;
-    margin: 10px 0;
+    margin: 8px 0;
 }
 
 .phone-item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: #e8d8b6;
-    padding: 12px 40px;
+    padding: 5px 25px;
     border-radius: 10px;
-    gap: 40px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 95%;
+    max-width: 380px;
+    box-sizing: border-box;
 }
 
 .phone-link {
     font-family: 'Vazir', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 38px;
+    font-size: 1.5rem;
     color: #333;
     text-decoration: none;
     font-weight: bold;
+    transition: all 0.3s ease;
 }
 
     .phone-link:hover {
         color: #8b4513;
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
 
 .save-contact {
-    font-size: 30px;
+    font-size: 1.8rem;
     color: #8b4513;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -265,10 +165,11 @@
         transform: scale(1.2);
     }
 
+/* شبکه‌های اجتماعی */
 .social-section {
     display: flex;
     justify-content: center;
-    margin: 10px 0;
+    margin: 8px 0;
 }
 
 .social-container {
@@ -276,11 +177,11 @@
     justify-content: space-around;
     align-items: center;
     background-color: #e8d8b6;
-    padding: 15px 10px;
+    padding: 18px 15px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    width: 90%;
-    max-width: 350px;
+    width: 95%;
+    max-width: 380px;
     box-sizing: border-box;
 }
 
@@ -288,8 +189,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -299,16 +200,17 @@
     }
 
 .social-icon {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     object-fit: contain;
     border-radius: 10px;
 }
 
+/* وبسایت */
 .website-section {
     display: flex;
     justify-content: center;
-    margin: 10px 0;
+    margin: 8px 0;
 }
 
 .website-link {
@@ -318,12 +220,12 @@
     text-decoration: none;
     font-weight: bold;
     background-color: #e8d8b6;
-    padding: 15px 20px;
+    padding: 16px 25px;
     border-radius: 10px;
     transition: all 0.3s ease;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    width: 90%;
-    max-width: 350px;
+    width: 95%;
+    max-width: 380px;
     box-sizing: border-box;
     text-align: center;
     display: flex;
@@ -337,26 +239,27 @@
         transform: scale(1.03);
     }
 
+/* آدرس */
 .address-section {
     display: flex;
     justify-content: center;
-    margin: 10px 0;
+    margin: 8px 0;
 }
 
 .address-link {
     font-family: 'Vazir', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #333;
     text-decoration: none;
     font-weight: bold;
     background-color: #e8d8b6;
-    padding: 15px 20px;
+    padding: 16px 25px;
     border-radius: 10px;
     transition: all 0.3s ease;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    width: 90%;
-    max-width: 350px;
+    width: 95%;
+    max-width: 380px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -368,16 +271,50 @@
         background-color: #8b4513;
         transform: scale(1.05);
     }
+
+/* کیوآرکد */
 .qrcode-section {
     display: flex;
     justify-content: center;
-    margin: 10px 0 10px 0;
-    padding: 0 20px;
+    margin: 15px 0 10px 0;
 }
 
 .qrcode {
-    width: 300px;
-    height: 300px;
+    width: 220px;
+    height: 220px;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* رسپانسیو */
+@media (max-width: 360px) {
+    .business-card {
+        width: 100vw;
+        border-radius: 0;
+        padding: 15px;
+    }
+
+    .profile-pic {
+        width: 80px;
+        height: 80px;
+    }
+
+    .name {
+        font-size: 1.6rem;
+    }
+
+    .phone-link {
+        font-size: 1.3rem;
+    }
+
+    .qrcode {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media (min-width: 768px) {
+    .business-card {
+        max-width: 450px;
+    }
 }
