@@ -38,6 +38,134 @@
     display: flex;
     align-items: center;
     gap: 15px;
+    body
+
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 5px;
+    background-color: #f0f0f0;
+}
+
+.business-card {
+    width: 95vw;
+    max-width: 400px;
+    background-color: #f5f5dc;
+    border-radius: 15px;
+    padding: 15px;
+    font-family: 'Dima Sogand new', Tahoma, Geneva, Verdana, sans-serif;
+    direction: rtl;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #e8d8b6;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.profile-pic {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #8b4513;
+}
+
+.name {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.import-text {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.phone-link {
+    font-size: 1.1rem;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.phone-item {
+    display: flex;
+    align-items: center;
+    background-color: #e8d8b6;
+    padding: 10px 20px;
+    border-radius: 10px;
+    gap: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 8px 0;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.website-link {
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+
+.address-link {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+}
+
+.qrcode {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* Media Query برای موبایل‌های بسیار کوچک */
+@media (max-width: 360px) {
+    .business-card {
+        width: 100vw;
+        border-radius: 0;
+        padding: 10px;
+    }
+
+    .profile-pic {
+        width: 60px;
+        height: 60px;
+    }
+
+    .name {
+        font-size: 1.2rem;
+    }
+
+    .qrcode {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Media Query برای تبلت‌ها */
+@media (min-width: 768px) {
+    .business-card {
+        max-width: 450px;
+    }
+}
 }
 
 .profile-pic {
