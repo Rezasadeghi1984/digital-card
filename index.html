@@ -1,56 +1,160 @@
 ﻿<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <title>کارت ویزیت رضا</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کارت ویزیت</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="card">
-        <!-- هدر: لوگو، نام، برند -->
-        <header>
-            <img src="assets/Logo.png" alt="لوگوی فروشگاه" class="logo">
-            <h1>رضا صادقی</h1>
-            <h2>بازرگانی هوم پلاس</h2>
-        </header>
-
-        <!-- اطلاعات تماس -->
-        <section id="contact">
-            <p>📞 <a href="tel:+989133840366">0913 384 0366</a></p>
-            <p>📞 <a href="tel:+989365098808">0936 509 8808</a></p>
-            <p>✉️ <a href="mailto:r.sadeghi1984@gmail.com">R.Sadeghi1984@Gmail.com</a></p>
-            <p>📍 قشم - سیتی سنتر2 - لاین A - پلاک 1870 </p>
-        </section>
-
-        <!-- شبکه‌های اجتماعی -->
-        <section id="social">
-            <a href="https://wa.me/989365098808" target="_blank">
-                <img src="assets/whatsapp.png" alt="واتساپ" class="social-icon">
-            </a>
-            <a href="https://t.me/Reza_sd1984" target="_blank">
-                <img src="assets/telegram.png" alt="تلگرام" class="social-icon">
-            </a>
-            <a href="https://instagram.com/Home1Plus" target="_blank">
-                <img src="assets/instagram.png" alt="اینستاگرام" class="social-icon">
-            </a>            
-            <a href="https://qr.wechat.com/q/B9YJ8X7Z6T" target="_blank">
-                <img src="assets/wechat.png" alt="ویچت" class="social-icon">
-            </a>
-        </section>
-
-        <!-- QR Codes کنار هم -->
-        <footer>
-            <div class="qr-container">
-                <div class="qr-item">
-                    <img src="assets/QRCode.png" alt="QR Code سایت" class="qr">
-                    <p class="website">🌐 <a href="https://www.HomePlus-Shop.ir" target="_blank">www.HomePlus-Shop.ir</a></p>
-                </div>
-                <div class="qr-item">
-                    <img src="assets/WeChatQR.png" alt="QR Code ویچت" class="qr">
-                    <p class="wechat">💬 WeChat</p>
+    <div class="business-card">
+        <div class="header">
+            <div class="right-section">
+                <img src="./assets/MyPic.JPG" alt="رضا صادقی" class="profile-pic">
+                <div class="name-section">
+                    <h1 class="name">رضا صادقی (بازرگانی هوم پلاس)</h1>
                 </div>
             </div>
-        </footer>
+            <div class="left-icons">
+                <div class="lion-icon" onclick="window.location.href = window.location.href;">
+                    <i class="fas fa-lion"></i>
+                </div>
+                <div class="share-icon" onclick="shareCard()">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- لوگو وسط صفحه -->
+        <div class="logo-container">
+            <img src="./assets/Logo.png" alt="لوگو" class="logo">
+        </div>
+
+        <!-- متن زیر لوگو -->
+        <div class="import-text">
+            واردات کالا مستقیم از چین و امارات
+        </div>
+
+        <!-- شماره تلفن و آیکون ذخیره -->
+        <div class="phone-section">
+            <div class="phone-item">
+                <a href="tel:09133840366" class="phone-link">09133840366</a>
+                <div class="save-contact" onclick="saveContact('رضا صادقی', '09133840366')">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- شماره تلفن دوم -->
+        <div class="phone-section">
+            <div class="phone-item">
+                <a href="tel:09365098808" class="phone-link">09365098808</a>
+                <div class="save-contact" onclick="saveContact('رضا صادقی', '09365098808')">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- شبکه‌های اجتماعی -->
+        <div class="social-section">
+            <div class="social-container">
+                <!-- واتساپ -->
+                <a href="https://wa.me/989365098808" class="social-item" target="_blank">
+                    <img src="./assets/whatsapp.png" alt="واتساپ" class="social-icon">
+                </a>
+
+                <!-- اینستاگرام -->
+                <a href="https://instagram.com/Home1Plus" class="social-item" target="_blank">
+                    <img src="./assets/instagram.png" alt="اینستاگرام" class="social-icon">
+                </a>
+
+                <!-- تلگرام -->
+                <a href="https://t.me/09365098808" class="social-item" target="_blank">
+                    <img src="./assets/telegram.png" alt="تلگرام" class="social-icon">
+                </a>
+
+                <!-- ویچت -->
+                <div class="social-item" onclick="copyWechatId()">
+                    <img src="./assets/wechat.png" alt="ویچت" class="social-icon">
+                </div>
+            </div>
+        </div>
+
+        <!-- آدرس سایت -->
+        <div class="website-section">
+            <a href="https://www.HomePlus-Shop.ir" class="website-link" target="_blank">
+                www.HomePlus-Shop.ir
+            </a>
+        </div>
+
+        <!-- آدرس فیزیکی -->
+        <div class="address-section">
+            <a href="https://maps.google.com/?q=26.937831313545484,56.273848376665676" class="address-link" target="_blank">
+                قشم-سیتی سنتر2-لاینA-پلاک1780
+            </a>
+        </div>
+
+        <!-- کیوآرکد ویچت -->
+        <div class="qrcode-section">
+            <img src="./assets/WeChatQR.png" alt="کیوآرکد ویچت" class="qrcode">
+        </div>
+
     </div>
+
+    <script>
+        function shareCard() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'رضا صادقی - بازرگانی هوم پلاس',
+                    text: 'کارت ویزیت دیجیتال',
+                    url: window.location.href
+                })
+                    .then(() => console.log('اشتراک‌گذاری موفق'))
+                    .catch((error) => console.log('خطا در اشتراک‌گذاری', error));
+            } else {
+                alert('امکان اشتراک‌گذاری در این مرورگر وجود ندارد');
+            }
+        }
+
+        function saveContact(name, phone) {
+            // ساخت vCard برای ذخیره مخاطب
+            const vCard = `BEGIN:VCARD
+                        VERSION:3.0
+                        FN:${name}
+                        TEL:${phone}
+                        END:VCARD`;
+
+            // ایجاد blob و دانلود
+            const blob = new Blob([vCard], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `${name}.vcf`;
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function copyWechatId() {
+            const wechatId = 'Reza_sd1984';
+            navigator.clipboard.writeText(wechatId)
+                .then(() => {
+                    alert('آیدی ویچت کپی شد: ' + wechatId);
+                })
+                .catch(() => {
+                    // Fallback برای مرورگرهای قدیمی
+                    const tempInput = document.createElement('input');
+                    tempInput.value = wechatId;
+                    document.body.appendChild(tempInput);
+                    tempInput.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempInput);
+                    alert('آیدی ویچت کپی شد: ' + wechatId);
+                });
+        }
+    </script>
+
+
+
 </body>
 </html>
