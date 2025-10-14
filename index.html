@@ -14,8 +14,8 @@
             <div class="right-section">
                 <img src="./assets/MyPic.JPG" alt="رضا صادقی" class="profile-pic">
                 <div class="name-section">
-                    <span class="name">رضا صادقی</span>
-                    <span class="subtitle">بازرگانی هوم پلاس</span>
+                    <span class="name" id="nameText">رضا صادقی</span>
+                    <span class="subtitle" id="subtitleText">بازرگانی هوم پلاس</span>
                 </div>
             </div>
             <div class="lion-icon" onclick="shareCard()">
@@ -29,15 +29,14 @@
         </div>
 
         <!-- متن زیر لوگو -->
-        <div class="import-text">
-            واردات کالا مستقیم از چین و امارات
-        </div>
+        <div class="import-text" id="importText">واردات کالا مستقیم از چین و امارات</div>
+
 
         <!-- شماره تلفن و آیکون ذخیره -->
         <div class="phone-section">
             <div class="phone-item">
                 <a href="tel:09133840366" class="phone-link">09133840366</a>
-                <div class="save-contact" onclick="saveContact('رضا صادقی', '09133840366')">
+                <div class="save-contact" onclick="saveContact('09133840366')">
                     <i class="fas fa-user-plus"></i>
                 </div>
             </div>
@@ -47,7 +46,7 @@
         <div class="phone-section">
             <div class="phone-item">
                 <a href="tel:09365098808" class="phone-link">09365098808</a>
-                <div class="save-contact" onclick="saveContact('رضا صادقی', '09365098808')">
+                <div class="save-contact" onclick="saveContact('09365098808')">
                     <i class="fas fa-user-plus"></i>
                 </div>
             </div>
@@ -80,27 +79,125 @@
 
         <!-- آدرس سایت -->
         <div class="website-section">
-            <a href="https://www.HomePlus-Shop.ir" class="website-link" target="_blank">
-                www.HomePlus-Shop.ir
-            </a>
+            <a href="https://www.HomePlus-Shop.ir" class="website-link" target="_blank" id="websiteText">www.HomePlus-Shop.ir</a>
         </div>
 
         <!-- آدرس فیزیکی -->
         <div class="address-section">
-            <a href="https://maps.google.com/?q=26.937831313545484,56.273848376665676" class="address-link" target="_blank">
-                قشم-سیتی سنتر2-لاینA-پلاک1780
-            </a>
+            <a href="https://maps.google.com/?q=26.937831313545484,56.273848376665676" class="address-link" target="_blank" id="addressText">قشم-سیتی سنتر2-لاینA-پلاک1780</a>
         </div>
 
-        <!-- کیوآرکد ویچت -->
-        <div class="qrcode-section">
-            <img src="./assets/WeChatQR.png" alt="کیوآرکد ویچت" class="qrcode">
+        <!-- کیوآرکد و دکمه زبان -->
+        <div class="qrcode-language-container">
+            <!-- کیوآرکد ویچت -->
+            <div class="qrcode-section">
+                <img src="./assets/WeChatQR.png" alt="کیوآرکد ویچت" class="qrcode">
+            </div>
+
+            <!-- دکمه تغییر زبان -->
+            <div class="language-switcher">
+                <button onclick="toggleLanguage()" class="lang-btn">
+                    <span id="langText">EN/中文</span>
+                </button>
+            </div>
         </div>
 
     </div>
 
     <script>
+
+        // ==================== ساختار داده چندزبانه ====================
+        const translations = {
+            fa: {
+                // هدر
+                name: "رضا صادقی",
+                subtitle: "بازرگانی هوم پلاس",
+
+                // متن اصلی
+                importText: "واردات کالا مستقیم از چین و امارات",
+
+                // دکمه‌ها و پیام‌ها
+                saveContactAlert: "فایل \"{name}.vcf\" دانلود شد.\n\nلطفاً فایل را باز کنید تا به مخاطبین اضافه شود.",
+                wechatAlert: "در حال باز کردن ویچت...",
+                shareTitle: "رضا صادقی - بازرگانی هوم پلاس",
+                shareText: "کارت ویزیت دیجیتال 📱\nواردات کالا مستقیم از چین و امارات 🚢",
+
+                // آدرس‌ها
+                website: "www.HomePlus-Shop.ir",
+                address: "قشم-سیتی سنتر2-لاینA-پلاک1780",
+
+                // متن دکمه زبان
+                langButton: "EN/中文"
+            },
+            en: {
+                name: "Reza Sadeghi",
+                subtitle: "Home Plus Trading",
+                importText: "Direct import of goods from China and UAE",
+                saveContactAlert: "File \"{name}.vcf\" downloaded.\n\nPlease open the file to add to contacts.",
+                wechatAlert: "Opening WeChat...",
+                shareTitle: "Reza Sadeghi - Home Plus Trading",
+                shareText: "Digital Business Card 📱\nDirect import from China and UAE 🚢",
+                website: "www.HomePlus-Shop.ir",
+                address: "Qeshm-City Center2-LaneA-No1780",
+                langButton: "فا/中文"
+            },
+            zh: {
+                name: "礼萨·萨德吉",
+                subtitle: "家居加贸易",
+                importText: "直接从中国和阿联酋进口商品",
+                saveContactAlert: "文件\"{name}.vcf\"已下载。\n\n请打开文件添加到联系人。",
+                wechatAlert: "正在打开微信...",
+                shareTitle: "礼萨·萨德吉 - 家居加贸易",
+                shareText: "数字名片 📱\n直接从中国和阿联酋进口 🚢",
+                website: "www.HomePlus-Shop.ir",
+                address: "格什姆-城市中心2-A通道-1780号",
+                langButton: "فا/EN"
+            }
+        };
+
+        // زبان پیش‌فرض
+        let currentLang = 'fa';
+        // ==================== پایان ساختار داده ====================
+
+        // ==================== توابع تغییر زبان ====================
+        function toggleLanguage() {
+            // چرخش بین زبان‌ها: فارسی -> انگلیسی -> چینی -> فارسی
+            const languages = ['fa', 'en', 'zh'];
+            const currentIndex = languages.indexOf(currentLang);
+            const nextIndex = (currentIndex + 1) % languages.length;
+            currentLang = languages[nextIndex];
+
+            // آپدیت تمام متن‌ها
+            updateAllTexts();
+        }
+
+        function updateAllTexts() {
+            // آپدیت متن دکمه زبان
+            document.getElementById('langText').textContent = translations[currentLang].langButton;
+
+            // آپدیت نام و زیرعنوان
+            document.querySelector('.name').textContent = translations[currentLang].name;
+            document.querySelector('.subtitle').textContent = translations[currentLang].subtitle;
+
+            // آپدیت متن واردات
+            document.querySelector('.import-text').textContent = translations[currentLang].importText;
+
+            // آپدیت آدرس سایت (متن داخل تگ <a>)
+            document.querySelector('.website-link').textContent = translations[currentLang].website;
+
+            // آپدیت آدرس فیزیکی (متن داخل تگ <a>)
+            document.querySelector('.address-link').textContent = translations[currentLang].address;
+        }
+
+        // آپدیت اولیه هنگام لود صفحه
+        document.addEventListener('DOMContentLoaded', function () {
+            updateAllTexts();
+        });
+        // ==================== پایان توابع تغییر زبان ====================
+
+
         //000000000000000000000000000000000000000000000000000000000000000000000000000000
+        // شیر کردن کارت ویزیت
         function shareCard() {
             // اضافه کردن انیمیشن به آیکون
             const lionIcon = document.querySelector('.lion-icon');
@@ -113,8 +210,8 @@
             // اول سعی کن منوی اشتراک‌گذاری native رو نشون بدی
             if (navigator.share) {
                 navigator.share({
-                    title: 'رضا صادقی - بازرگانی هوم پلاس',
-                    text: 'کارت ویزیت دیجیتال 📱\nواردات کالا مستقیم از چین و امارات 🚢',
+                    title: translations[currentLang].shareTitle,
+                    text: translations[currentLang].shareText,
                     url: window.location.href
                 })
                     .then(() => {
@@ -123,39 +220,36 @@
                     .catch((error) => {
                         console.log('خطا در اشتراک‌گذاری', error);
                         if (error.name !== 'AbortError') {
-                            // اگر خطا غیر از cancel کردن بود، لینک رو کپی کن
                             copyLinkToClipboard();
                         }
                     });
             } else {
-                // اگر مرورگر از share پشتیبانی نمی‌کند، لینک رو کپی کن
                 copyLinkToClipboard();
             }
         }
 
         // تابع جداگانه برای کپی کردن لینک
         function copyLinkToClipboard() {
-            const shareText = `🦁 رضا صادقی - بازرگانی هوم پلاس\n📱 کارت ویزیت دیجیتال\n🚢 واردات کالا مستقیم از چین و امارات\n🌐 ${window.location.href}`;
+            const shareText = `${translations[currentLang].shareTitle}\n${translations[currentLang].shareText}\n${window.location.href}`;
 
             navigator.clipboard.writeText(shareText)
                 .then(() => {
                     alert('مرورگر شما از اشتراک‌گذاری مستقیم پشتیبانی نمی‌کند.\n\nلینک کارت ویزیت کپی شد! می‌توانید در شبکه‌های اجتماعی به اشتراک بگذارید. 📤');
                 })
                 .catch(() => {
-                    // روش fallback برای مرورگرهای قدیمی
                     const tempInput = document.createElement('textarea');
                     tempInput.value = shareText;
                     document.body.appendChild(tempInput);
                     tempInput.select();
                     document.execCommand('copy');
                     document.body.removeChild(tempInput);
-
                     alert('مرورگر شما از اشتراک‌گذاری مستقیم پشتیبانی نمی‌کند.\n\nلینک کارت ویزیت کپی شد! می‌توانید در شبکه‌های اجتماعی به اشتراک بگذارید. 📤');
                 });
         }
-        //000000000000000000000000000000000000000000000000000000000000000000000000000000
+        //000000000000000000000000000000000000000000000000000000000000000000000000000000==
         //تابع ذخیره شماره تلفن ها
-        function saveContact(name, phone) {
+        function saveContact(phone) {
+            const name = translations[currentLang].name;
             const vCard = `BEGIN:VCARD\nVERSION:3.0\nFN:${name}\nTEL:${phone}\nEND:VCARD`;
             const blob = new Blob([vCard], { type: 'text/vcard' });
             const url = URL.createObjectURL(blob);
@@ -165,16 +259,17 @@
             link.click();
             URL.revokeObjectURL(url);
 
-            // نمایش راهنمای کاربر
-            alert(`فایل "${name}.vcf" دانلود شد.\n\nلطفاً فایل را باز کنید تا به مخاطبین اضافه شود.`);
+            // نمایش راهنمای کاربر با متن چندزبانه
+            const alertMessage = translations[currentLang].saveContactAlert.replace('{name}', name);
+            alert(alertMessage);
         }
         
         //0000000000000000000000000000000000000000000000000000000000000000000000000000000000000
         //کپی لینک ویچت
         function openWechatId() {
             const wechatId = 'Reza_sd1984';
+            alert(translations[currentLang].wechatAlert);
             window.location.href = `weixin://dl/chat?${wechatId}`;
-                        
         }
     </script>
 

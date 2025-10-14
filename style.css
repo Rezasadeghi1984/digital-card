@@ -300,7 +300,7 @@ body {
 .qrcode-section {
     display: flex;
     justify-content: center;
-    margin: 15px 0 10px 0;
+    margin: 5px 0 5px 0;
 }
 
 .qrcode {
@@ -309,6 +309,46 @@ body {
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
+/* کانتینر کیوآرکد و دکمه زبان */
+/* کانتینر کیوآرکد و دکمه زبان */
+.qrcode-language-container {
+    display: flex;
+    justify-content: center; /* کیوآرکد وسط بمونه */
+    align-items: center;
+    gap: 20px; /*فاصله از هم*/
+    margin: 5px 0 5px 0;
+    position: relative; /* برای موقعیت‌دهی دکمه */
+    
+}
+
+/* استایل دکمه تغییر زبان */
+.language-switcher {
+    position: absolute; /* دکمه موقعیت مطلق داشته باشه */
+    left: 20px; /* فاصله از چپ */
+    top: 50%; /* در مرکز عمودی */
+    transform: translateY(-50%); /* دقیقاً وسط عمودی */
+    margin-top: 85px;
+}
+
+.lang-btn {
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 20px;
+    font-family: 'Vazir', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    white-space: nowrap;
+}
+
+    .lang-btn:hover {
+        background-color: #654321;
+        transform: scale(1.05);
+    }
+
 
 /* رسپانسیو */
 @media (max-width: 360px) {
@@ -329,12 +369,7 @@ body {
 
     .phone-link {
         font-size: 1.3rem;
-    }
-
-    .qrcode {
-        width: 180px;
-        height: 180px;
-    }
+    }   
 }
 
 @media (min-width: 768px) {
