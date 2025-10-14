@@ -175,43 +175,52 @@
         }
 
         function tryDirectContactSave(name, phone) {
-            // روش 1: Web Share API برای مخاطبین (مدرن‌ترین)
-            if (navigator.share && navigator.canShare && navigator.canShare({ contacts: [] })) {
+            // تشخیص آیفون
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+            // روش 1: Web Share API (برای همه دستگاه‌های مدرن)
+            if (navigator.share) {
                 try {
                     navigator.share({
-                        contacts: [{
-                            name: name,
-                            tel: phone
-                        }]
+                        title: `ذخیره مخاطب: ${name}`,
+                        text: `نام: ${name}\nشماره: ${phone}`,
+                        url: window.location.href
                     });
+                    return true;
+                } catch (e) {
+                    if (e.name !== 'AbortError') {
+                        // خطای غیر از cancel
+                    }
+                }
+            }
+
+            // روش 2: برای اندروید (intent)
+            if (!isIOS) {
+                try {
+                    const intentUrl = `intent://insert/?name=${encodeURIComponent(name)}&phone=${phone}#Intent;scheme=content;package=com.android.contacts;action=android.intent.action.INSERT;type=vnd.android.cursor.dir/contact;S.name=${encodeURIComponent(name)};S.phone=${phone};end;`;
+                    window.location.href = intentUrl;
                     return true;
                 } catch (e) {
                     // ادامه به روش بعدی
                 }
             }
 
-            // روش 2: intent مخصوص اندروید برای ایجاد مخاطب جدید
-            try {
-                const intentUrl = `intent://insert/?name=${encodeURIComponent(name)}&phone=${phone}#Intent;scheme=content;package=com.android.contacts;action=android.intent.action.INSERT;type=vnd.android.cursor.dir/contact;S.name=${encodeURIComponent(name)};S.phone=${phone};end;`;
-                window.location.href = intentUrl;
-                return true;
-            } catch (e) {
-                // ادامه به روش بعدی
+            // روش 3: برای آیفون - فقط شماره را پیش‌پر می‌کند
+            if (isIOS) {
+                try {
+                    window.location.href = `tel:${phone}`;
+                    // بعد از 1 ثانیه برمی‌گردیم
+                    setTimeout(() => {
+                        window.history.back();
+                    }, 1000);
+                    return true;
+                } catch (e) {
+                    // ادامه به روش بعدی
+                }
             }
 
-            // روش 3: contacts: برای آیفون
-            try {
-                const contactsUrl = `contacts:create?name=${encodeURIComponent(name)}&phone=${phone}`;
-                window.location.href = contactsUrl;
-                return true;
-            } catch (e) {
-                // ادامه به روش بعدی
-            }
-
-            // اگر هیچکدام کار نکرد
             return false;
         }
-
         //function saveContact(name, phone) {
         //    if (confirm(`برای ذخیره "${name}" در مخاطبین، فایل vcf دانلود خواهد شد. آن را باز کنید تا به اپ مخاطبین منتقل شوید.`)) {
         //        const vCard = `BEGIN:VCARD\nVERSION:3.0\nFN:${name}\nTEL:${phone}\nEND:VCARD`;
