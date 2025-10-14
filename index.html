@@ -103,30 +103,26 @@
 
     <script>
         function shareCard() {
-            // تشخیص آیفون
-            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-            const isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
-
-            if (navigator.share && !(isIOS && isSafari)) {
-                // برای اندروید و مرورگرهای دیگر
+            if (navigator.share) {
+                // برای همه موبایل‌ها (包括 آیفون)
                 navigator.share({
                     title: 'رضا صادقی - بازرگانی هوم پلاس',
                     text: 'کارت ویزیت دیجیتال',
                     url: window.location.href
                 })
                     .then(() => console.log('اشتراک‌گذاری موفق'))
-                    .catch((error) => console.log('خطا در اشتراک‌گذاری', error));
+                    .catch((error) => {
+                        // اگر کاربر cancel کرد، خطا نیست
+                        if (error.name !== 'AbortError') {
+                            console.log('خطا در اشتراک‌گذاری', error);
+                        }
+                    });
             } else {
-                // برای آیفون و مرورگرهای قدیمی
+                // فقط برای دسکتاپ
                 const shareText = `رضا صادقی - بازرگانی هوم پلاس\n${window.location.href}`;
-
                 navigator.clipboard.writeText(shareText)
                     .then(() => {
-                        if (isIOS) {
-                            alert('لینک کپی شد! می‌توانید از منوی اشتراک‌گذاری Safari استفاده کنید.');
-                        } else {
-                            alert('لینک کارت ویزیت کپی شد! می‌توانید در شبکه‌های اجتماعی به اشتراک بگذارید.');
-                        }
+                        alert('لینک کارت ویزیت کپی شد! می‌توانید در شبکه‌های اجتماعی به اشتراک بگذارید.');
                     })
                     .catch(() => {
                         const tempInput = document.createElement('textarea');
@@ -135,12 +131,7 @@
                         tempInput.select();
                         document.execCommand('copy');
                         document.body.removeChild(tempInput);
-
-                        if (isIOS) {
-                            alert('لینک کپی شد! می‌توانید از منوی اشتراک‌گذاری Safari استفاده کنید.');
-                        } else {
-                            alert('لینک کارت ویزیت کپی شد! می‌توانید در شبکه‌های اجتماعی به اشتراک بگذارید.');
-                        }
+                        alert('لینک کارت ویزیت کپی شد! می‌توانید در شبکه‌های اجتماعی به اشتراک بگذارید.');
                     });
             }
         }
