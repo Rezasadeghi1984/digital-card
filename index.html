@@ -101,8 +101,12 @@
 
     <script>
         function shareCard() {
-            if (navigator.share) {
-                // برای موبایل
+            // تشخیص آیفون
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+            const isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
+
+            if (navigator.share && !(isIOS && isSafari)) {
+                // برای اندروید و مرورگرهای دیگر
                 navigator.share({
                     title: 'رضا صادقی - بازرگانی هوم پلاس',
                     text: 'کارت ویزیت دیجیتال',
@@ -111,23 +115,30 @@
                     .then(() => console.log('اشتراک‌گذاری موفق'))
                     .catch((error) => console.log('خطا در اشتراک‌گذاری', error));
             } else {
-                // برای ویندوز و دسکتاپ
+                // برای آیفون و مرورگرهای قدیمی
                 const shareText = `رضا صادقی - بازرگانی هوم پلاس\n${window.location.href}`;
 
-                // کپی به کلیپ‌بورد
                 navigator.clipboard.writeText(shareText)
                     .then(() => {
-                        alert('لینک کارت ویزیت کپی شد! می‌توانید در شبکه‌های اجتماعی به اشتراک بگذارید.');
+                        if (isIOS) {
+                            alert('لینک کپی شد! می‌توانید از منوی اشتراک‌گذاری Safari استفاده کنید.');
+                        } else {
+                            alert('لینک کارت ویزیت کپی شد! می‌توانید در شبکه‌های اجتماعی به اشتراک بگذارید.');
+                        }
                     })
                     .catch(() => {
-                        // روش جایگزین برای مرورگرهای قدیمی
                         const tempInput = document.createElement('textarea');
                         tempInput.value = shareText;
                         document.body.appendChild(tempInput);
                         tempInput.select();
                         document.execCommand('copy');
                         document.body.removeChild(tempInput);
-                        alert('لینک کارت ویزیت کپی شد! می‌توانید در شبکه‌های اجتماعی به اشتراک بگذارید.');
+
+                        if (isIOS) {
+                            alert('لینک کپی شد! می‌توانید از منوی اشتراک‌گذاری Safari استفاده کنید.');
+                        } else {
+                            alert('لینک کارت ویزیت کپی شد! می‌توانید در شبکه‌های اجتماعی به اشتراک بگذارید.');
+                        }
                     });
             }
         }
