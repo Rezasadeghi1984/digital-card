@@ -175,40 +175,7 @@
         }
 
         function tryDirectContactSave(name, phone) {
-            // روش 1: استفاده از tel: با پارامترهای اضافی (برای اندروید و برخی آیفون)
-            try {
-                const telUrl = `tel:${phone};`;
-                window.location.href = telUrl;
-
-                // اگر به اینجا رسیدیم یعنی مرورگر از tel: پشتیبانی می‌کند
-                setTimeout(() => {
-                    // بعد از 500ms برمی‌گردیم به صفحه اصلی
-                    window.history.back();
-                }, 500);
-                return true;
-            } catch (e) {
-                // ادامه به روش بعدی
-            }
-
-            // روش 2: استفاده از contacts: (برای آیفون و اندرویدهای مدرن)
-            try {
-                const contactsUrl = `contacts:create?name=${encodeURIComponent(name)}&phone=${phone}`;
-                window.location.href = contactsUrl;
-                return true;
-            } catch (e) {
-                // ادامه به روش بعدی
-            }
-
-            // روش 3: استفاده از intent اندروید
-            try {
-                const intentUrl = `intent://add_contact/?name=${encodeURIComponent(name)}&phone=${phone}#Intent;scheme=add_contact;package=com.android.contacts;end;`;
-                window.location.href = intentUrl;
-                return true;
-            } catch (e) {
-                // ادامه به روش بعدی
-            }
-
-            // روش 4: استفاده از Web Share API Level 2 (اگر پشتیبانی شود)
+            // روش 1: Web Share API برای مخاطبین (مدرن‌ترین)
             if (navigator.share && navigator.canShare && navigator.canShare({ contacts: [] })) {
                 try {
                     navigator.share({
@@ -223,10 +190,27 @@
                 }
             }
 
-            // اگر هیچکدام از روش‌های مستقیم کار نکرد
+            // روش 2: intent مخصوص اندروید برای ایجاد مخاطب جدید
+            try {
+                const intentUrl = `intent://insert/?name=${encodeURIComponent(name)}&phone=${phone}#Intent;scheme=content;package=com.android.contacts;action=android.intent.action.INSERT;type=vnd.android.cursor.dir/contact;S.name=${encodeURIComponent(name)};S.phone=${phone};end;`;
+                window.location.href = intentUrl;
+                return true;
+            } catch (e) {
+                // ادامه به روش بعدی
+            }
+
+            // روش 3: contacts: برای آیفون
+            try {
+                const contactsUrl = `contacts:create?name=${encodeURIComponent(name)}&phone=${phone}`;
+                window.location.href = contactsUrl;
+                return true;
+            } catch (e) {
+                // ادامه به روش بعدی
+            }
+
+            // اگر هیچکدام کار نکرد
             return false;
         }
-
 
         //function saveContact(name, phone) {
         //    if (confirm(`برای ذخیره "${name}" در مخاطبین، فایل vcf دانلود خواهد شد. آن را باز کنید تا به اپ مخاطبین منتقل شوید.`)) {
