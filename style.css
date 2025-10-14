@@ -26,7 +26,7 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 15px;
-    background-color: #f0f0f0;
+    background-color: darkolivegreen; 
     box-sizing: border-box;
 }
 
@@ -47,12 +47,12 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 8px 10px; /* کاهش از 15px به 8px (عمودی) */
-    background-color: #e8d8b6;
+    background-color: rgba(0, 128, 128, 0.3); /* teal با شفافیت 30% */
     border-radius: 10px;
     margin-bottom: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    width: 99%;
-    max-width: 400px;
+    width: 100%;
+    max-width: 418px;
     box-sizing: border-box;
     margin-right: auto;
     margin-left: auto;
@@ -81,15 +81,15 @@ body {
 .name {
     margin: 0;
     font-size: 2.0rem; /* فونت بزرگ حفظ شد */
-    color: #333;
+    color: mediumblue;
     font-weight: bold;
     display: block;
 }
 
 .subtitle {
     margin: 0;
-    font-size: 1.9rem; /* فونت بزرگ حفظ شد */
-    color: #666;
+    font-size: 1.6rem; /* فونت بزرگ حفظ شد */
+    color: #4d4dff;
     display: block;
     margin-top: 3px; /* کاهش از 5px به 3px */
 }
@@ -164,7 +164,7 @@ body {
 .phone-link {
     font-family: 'Vazir', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.5rem;
-    color: #333;
+    color: #2c2c2c;
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s ease;
@@ -177,13 +177,14 @@ body {
 
 .save-contact {
     font-size: 1.8rem;
-    color: #8b4513;
+    color: #2c2c2c;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
     .save-contact:hover {
         transform: scale(1.2);
+        color: #8b4513;
     }
 
 /* شبکه‌های اجتماعی */
@@ -237,7 +238,7 @@ body {
 .website-link {
     font-family: 'Vazir', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.3rem;
-    color: #333;
+    color: #2c2c2c;
     text-decoration: none;
     font-weight: bold;
     background-color: #e8d8b6;
@@ -256,7 +257,7 @@ body {
 
     .website-link:hover {
         color: #fff;
-        background-color: #8b4513;
+        background-color: #c08b5a;
         transform: scale(1.03);
     }
 
@@ -270,7 +271,7 @@ body {
 .address-link {
     font-family: 'Vazir', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.1rem;
-    color: #333;
+    color: #2c2c2c;
     text-decoration: none;
     font-weight: bold;
     background-color: #e8d8b6;
@@ -289,7 +290,7 @@ body {
 
     .address-link:hover {
         color: #fff;
-        background-color: #8b4513;
+        background-color: #c08b5a;
         transform: scale(1.05);
     }
 
