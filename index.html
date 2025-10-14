@@ -72,7 +72,7 @@
                 </a>
 
                 <!-- ویچت -->
-                <div class="social-item" onclick="copyWechatId()">
+                <div class="social-item" onclick="openWechatId()">
                     <img src="./assets/wechat.png" alt="ویچت" class="social-icon">
                 </div>
             </div>
@@ -156,99 +156,25 @@
         //000000000000000000000000000000000000000000000000000000000000000000000000000000
         //تابع ذخیره شماره تلفن ها
         function saveContact(name, phone) {
-            // ابتدا سعی می‌کنیم از روش مستقیم استفاده کنیم
-            if (tryDirectContactSave(name, phone)) {
-                return;
-            }
+            const vCard = `BEGIN:VCARD\nVERSION:3.0\nFN:${name}\nTEL:${phone}\nEND:VCARD`;
+            const blob = new Blob([vCard], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `${name}.vcf`;
+            link.click();
+            URL.revokeObjectURL(url);
 
-            // اگر روش مستقیم کار نکرد، از روش فایل vcf استفاده می‌کنیم
-            if (confirm(`ذخیره خودکار مخاطب در دستگاه شما پشتیبانی نمی‌شود.\n\nراه جایگزین: فایل مخاطب دانلود خواهد شد. پس از دانلود، آن را باز کنید تا "${name}" به لیست مخاطبین شما اضافه شود.`)) {
-                const vCard = `BEGIN:VCARD\nVERSION:3.0\nFN:${name}\nTEL:${phone}\nEND:VCARD`;
-                const blob = new Blob([vCard], { type: 'text/vcard' });
-                const url = URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = `${name}.vcf`;
-                link.click();
-                URL.revokeObjectURL(url);
-            }
+            // نمایش راهنمای کاربر
+            alert(`فایل "${name}.vcf" دانلود شد.\n\nلطفاً فایل را باز کنید تا به مخاطبین اضافه شود.`);
         }
-
-        function tryDirectContactSave(name, phone) {
-            // تشخیص آیفون
-            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-
-            // روش 1: Web Share API (برای همه دستگاه‌های مدرن)
-            if (navigator.share) {
-                try {
-                    navigator.share({
-                        title: `ذخیره مخاطب: ${name}`,
-                        text: `نام: ${name}\nشماره: ${phone}`,
-                        url: window.location.href
-                    });
-                    return true;
-                } catch (e) {
-                    if (e.name !== 'AbortError') {
-                        // خطای غیر از cancel
-                    }
-                }
-            }
-
-            // روش 2: برای اندروید (intent)
-            if (!isIOS) {
-                try {
-                    const intentUrl = `intent://insert/?name=${encodeURIComponent(name)}&phone=${phone}#Intent;scheme=content;package=com.android.contacts;action=android.intent.action.INSERT;type=vnd.android.cursor.dir/contact;S.name=${encodeURIComponent(name)};S.phone=${phone};end;`;
-                    window.location.href = intentUrl;
-                    return true;
-                } catch (e) {
-                    // ادامه به روش بعدی
-                }
-            }
-
-            // روش 3: برای آیفون - فقط شماره را پیش‌پر می‌کند
-            if (isIOS) {
-                try {
-                    window.location.href = `tel:${phone}`;
-                    // بعد از 1 ثانیه برمی‌گردیم
-                    setTimeout(() => {
-                        window.history.back();
-                    }, 1000);
-                    return true;
-                } catch (e) {
-                    // ادامه به روش بعدی
-                }
-            }
-
-            return false;
-        }
-        //function saveContact(name, phone) {
-        //    if (confirm(`برای ذخیره "${name}" در مخاطبین، فایل vcf دانلود خواهد شد. آن را باز کنید تا به اپ مخاطبین منتقل شوید.`)) {
-        //        const vCard = `BEGIN:VCARD\nVERSION:3.0\nFN:${name}\nTEL:${phone}\nEND:VCARD`;
-        //        const blob = new Blob([vCard], { type: 'text/vcard' });
-        //        const url = URL.createObjectURL(blob);
-        //        const link = document.createElement('a');
-        //        link.href = url;
-        //        link.download = `${name}.vcf`;
-        //        link.click();
-        //    }
-        //}
+        
         //0000000000000000000000000000000000000000000000000000000000000000000000000000000000000
         //کپی لینک ویچت
-        function copyWechatId() {
+        function openWechatId() {
             const wechatId = 'Reza_sd1984';
-            navigator.clipboard.writeText(wechatId)
-                .then(() => {
-                    alert('آیدی ویچت کپی شد: ' + wechatId);
-                })
-                .catch(() => {
-                    const tempInput = document.createElement('input');
-                    tempInput.value = wechatId;
-                    document.body.appendChild(tempInput);
-                    tempInput.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(tempInput);
-                    alert('آیدی ویچت کپی شد: ' + wechatId);
-                });
+            window.location.href = `weixin://dl/chat?${wechatId}`;
+                        
         }
     </script>
 
