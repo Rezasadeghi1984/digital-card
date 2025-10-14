@@ -6,13 +6,6 @@
 }
 
 @font-face {
-    font-family: 'Titr';
-    src: url('./Fonts/Titr.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'Vazir';
     src: url('./Fonts/Vazir.ttf') format('truetype');
     font-weight: normal;
@@ -41,12 +34,12 @@ body {
     box-sizing: border-box;
 }
 
-/* هدر */
+/*  ==================== هدر ==================== */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 10px; /* کاهش از 15px به 8px (عمودی) */
+    padding: 8px 10px; 
     background-color: rgba(0, 128, 128, 0.3); /* teal با شفافیت 30% */
     border-radius: 10px;
     margin-bottom: 10px;
@@ -62,25 +55,26 @@ body {
 .right-section {
     display: flex;
     align-items: center;
-    gap: 8px; /* کاهش از 15px به 12px */
+    gap: 8px; 
 }
 
 .profile-pic {
-    width: 85px; /* کاهش جزئی از 90px */
+    width: 85px; 
     height: 85px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #8b4513;
 }
 
+/*  ==================== نام و نام مجموعه ==================== */
 .name-section {
     text-align: right;
-    line-height: 1.2; /* کاهش از 1.3 به 1.2 */
+    line-height: 1.2; 
 }
 
 .name {
     margin: 0;
-    font-size: 2.0rem; /* فونت بزرگ حفظ شد */
+    font-size: 2.0rem; 
     color: mediumblue;
     font-weight: bold;
     display: block;
@@ -88,13 +82,14 @@ body {
 
 .subtitle {
     margin: 0;
-    font-size: 1.6rem; /* فونت بزرگ حفظ شد */
+    font-size: 1.6rem; 
     color: #4d4dff;
     display: block;
-    margin-top: 3px; /* کاهش از 5px به 3px */
+    margin-top: 3px; 
 }
+
 .lion-icon {
-    font-size: 2.4rem; /* کاهش از 2.8rem به 2.4rem */
+    font-size: 2.4rem; 
     color: #8b4513;
     margin-right: 5px;
 }
@@ -104,8 +99,9 @@ body {
         color: #654321;
     }
 
+/*  ==================== دکمه شیر ==================== */
 .share-icon {
-    font-size: 1.6rem; /* کاهش از 1.8rem به 1.6rem */
+    font-size: 1.6rem; 
     color: #2c2c2c;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -116,8 +112,7 @@ body {
         color: #8b4513;
     }
 
-
-/* لوگو */
+/*  ==================== لوگو ==================== */
 .logo-container {
     display: flex;
     justify-content: center;
@@ -133,7 +128,7 @@ body {
     height: auto;
 }
 
-/* متن واردات */
+/*  ==================== متن زیر لوگو ==================== */
 .import-text {
     text-align: center;
     font-family: 'Dima Sogand new', Tahoma, Geneva, Verdana, sans-serif;
@@ -143,7 +138,7 @@ body {
     font-weight: bold;
 }
 
-/* تلفن‌ها */
+/*  ==================== تلفن ها ==================== */
 .phone-section {
     display: flex;
     justify-content: center;
@@ -177,6 +172,7 @@ body {
         transform: scale(1.05);
     }
 
+/*  ==================== ذخیره شماره ==================== */
 .save-contact {
     font-size: 1.8rem;
     color: #2c2c2c;
@@ -189,7 +185,7 @@ body {
         color: #8b4513;
     }
 
-/* شبکه‌های اجتماعی */
+/*  ==================== شبکه های اجتماعی ==================== */
 .social-section {
     display: flex;
     justify-content: center;
@@ -230,7 +226,7 @@ body {
     border-radius: 10px;
 }
 
-/* وبسایت */
+/*  ==================== وبسایت ==================== */
 .website-section {
     display: flex;
     justify-content: center;
@@ -263,7 +259,7 @@ body {
         transform: scale(1.03);
     }
 
-/* آدرس */
+/*  ==================== آدرس فیزیکی ==================== */
 .address-section {
     display: flex;
     justify-content: center;
@@ -296,7 +292,7 @@ body {
         transform: scale(1.05);
     }
 
-/* کیوآرکد */
+/*  ==================== کیو آر کد و دکمه تغییر زبان ==================== */
 .qrcode-section {
     display: flex;
     justify-content: center;
@@ -309,24 +305,24 @@ body {
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
-/* کانتینر کیوآرکد و دکمه زبان */
+
 /* کانتینر کیوآرکد و دکمه زبان */
 .qrcode-language-container {
     display: flex;
-    justify-content: center; /* کیوآرکد وسط بمونه */
+    justify-content: center; 
     align-items: center;
-    gap: 20px; /*فاصله از هم*/
+    gap: 20px; 
     margin: 5px 0 5px 0;
-    position: relative; /* برای موقعیت‌دهی دکمه */
+    position: relative; 
     
 }
 
 /* استایل دکمه تغییر زبان */
 .language-switcher {
-    position: absolute; /* دکمه موقعیت مطلق داشته باشه */
-    left: 20px; /* فاصله از چپ */
-    top: 50%; /* در مرکز عمودی */
-    transform: translateY(-50%); /* دقیقاً وسط عمودی */
+    position: absolute; 
+    left: 20px; 
+    top: 50%; 
+    transform: translateY(-50%); 
     margin-top: 85px;
 }
 
@@ -350,7 +346,7 @@ body {
     }
 
 
-/* رسپانسیو */
+/*  ==================== رسپانسیو جهت نمایش در انواع دستگاه ==================== */
 @media (max-width: 360px) {
     .business-card {
         width: 100vw;
