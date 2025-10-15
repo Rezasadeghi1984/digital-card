@@ -7,7 +7,9 @@
     <title>کارت ویزیت</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
 </head>
+
 <body>
     <div class="business-card">
         <div class="header">
@@ -18,10 +20,47 @@
                     <span class="subtitle" id="subtitleText">بازرگانی هوم پلاس</span>
                 </div>
             </div>
-            <div class="lion-icon" onclick="shareCard()">
-                <img src="./assets/share.png" alt="شیر" style="width: 50px; height: 50px;">
+
+            <!-- منوی همبرگری - -->
+            <div class="hamburger-menu">
+                <!-- آیکون همبرگری -->
+                <div class="hamburger-icon" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <!-- منوی کشویی -->
+                <div class="dropdown-menu">
+                    <!-- اشتراک گذاری -->
+                    <div class="menu-item" onclick="shareCard()">
+                        <i class="fas fa-share-alt"></i>
+                        <span>اشتراک‌گذاری</span>
+                    </div>
+
+                    <!-- ذخیره عکس -->
+                    <div class="menu-item" onclick="saveAsImage()">
+                        <i class="fas fa-camera"></i>
+                        <span>ذخیره عکس</span>
+                    </div>
+
+                    <!-- تغییر زبان -->
+                    <div class="menu-item" onclick="toggleLanguage()">
+                        <i class="fas fa-globe"></i>
+                        <span>تغییر زبان</span>
+                    </div>
+
+                    <!-- کپی لینک -->
+                    <div class="menu-item" onclick="copyLink()">
+                        <i class="fas fa-link"></i>
+                        <span>کپی لینک</span>
+                    </div>
+                </div>
             </div>
+
+
         </div>
+
 
         <!-- لوگو وسط صفحه -->
         <div class="logo-container">
@@ -33,7 +72,7 @@
 
 
         <!-- شماره تلفن و آیکون ذخیره -->
-        <div class="phone-section">
+        <div class="phone-section animated-element phone-first">
             <div class="phone-item">
                 <a href="tel:09133840366" class="phone-link">09133840366</a>
                 <div class="save-contact" onclick="saveContact('09133840366')">
@@ -43,7 +82,7 @@
         </div>
 
         <!-- شماره تلفن دوم -->
-        <div class="phone-section">
+        <div class="phone-section animated-element phone-second">
             <div class="phone-item">
                 <a href="tel:09365098808" class="phone-link">09365098808</a>
                 <div class="save-contact" onclick="saveContact('09365098808')">
@@ -53,7 +92,7 @@
         </div>
 
         <!-- شبکه‌های اجتماعی -->
-        <div class="social-section">
+        <div class="social-section animated-element socials">
             <div class="social-container">
                 <!-- واتساپ -->
                 <a href="https://wa.me/989365098808" class="social-item" target="_blank">
@@ -78,12 +117,12 @@
         </div>
 
         <!-- آدرس سایت -->
-        <div class="website-section">
+        <div class="website-section animated-element website">
             <a href="https://www.HomePlus-Shop.ir" class="website-link" target="_blank" id="websiteText">www.HomePlus-Shop.ir</a>
         </div>
 
         <!-- آدرس فیزیکی -->
-        <div class="address-section">
+        <div class="address-section animated-element address">
             <a href="https://maps.google.com/?q=26.937831313545484,56.273848376665676" class="address-link" target="_blank" id="addressText">قشم-سیتی سنتر2-لاینA-پلاک1780</a>
         </div>
 
@@ -104,6 +143,9 @@
 
     </div>
 
+    <!-- کتابخانه ذخیره عکس -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
     <script>
 
         // ==================== ساختار داده چندزبانه ====================
@@ -112,6 +154,12 @@
                 // هدر
                 name: "رضا صادقی",
                 subtitle: "بازرگانی هوم پلاس",
+
+                //منو
+                share: "اشتراک‌گذاری",
+                saveImage: "ذخیره عکس",
+                changeLanguage: "تغییر زبان",
+                copyLink: "کپی لینک",
 
                 // متن اصلی
                 importText: "واردات کالا مستقیم از چین و امارات",
@@ -132,6 +180,10 @@
             en: {
                 name: "Reza Sadeghi",
                 subtitle: "Home Plus Trading",
+                share: "Share",
+                saveImage: "Save Image",
+                changeLanguage: "Change Language",
+                copyLink: "Copy Link",
                 importText: "Direct import of goods from China and UAE",
                 saveContactAlert: "File \"{name}.vcf\" downloaded.\n\nPlease open the file to add to contacts.",
                 wechatAlert: "Opening WeChat...",
@@ -144,6 +196,10 @@
             zh: {
                 name: "礼萨·萨德吉",
                 subtitle: "家居加贸易",
+                share: "分享",
+                saveImage: "保存图片",
+                changeLanguage: "更改语言",
+                copyLink: "复制链接",
                 importText: "直接从中国和阿联酋进口商品",
                 saveContactAlert: "文件\"{name}.vcf\"已下载。\n\n请打开文件添加到联系人。",
                 wechatAlert: "正在打开微信...",
@@ -186,6 +242,16 @@
 
             // آپدیت آدرس فیزیکی (متن داخل تگ <a>)
             document.querySelector('.address-link').textContent = translations[currentLang].address;
+            // آپدیت متن منو
+            const menuTexts = [
+                translations[currentLang].share,
+                translations[currentLang].saveImage,
+                translations[currentLang].changeLanguage,
+                translations[currentLang].copyLink
+            ];
+            document.querySelectorAll('.menu-item span').forEach((span, index) => {
+                if (menuTexts[index]) span.textContent = menuTexts[index];
+            });
         }
 
         // آپدیت اولیه هنگام لود صفحه
@@ -196,12 +262,13 @@
         // ==================== شیر کردن کارت ویزیت ====================
         function shareCard() {
             // اضافه کردن انیمیشن به آیکون
-            const lionIcon = document.querySelector('.lion-icon');
-            lionIcon.style.transform = 'scale(0.9)';
-
-            setTimeout(() => {
-                lionIcon.style.transform = 'scale(1)';
-            }, 150);
+            const hamburgerIcon = document.querySelector('.hamburger-icon');
+            if (hamburgerIcon) {
+                hamburgerIcon.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    hamburgerIcon.style.transform = 'scale(1)';
+                }, 150);
+            }
 
             // اول سعی کن منوی اشتراک‌گذاری native رو نشون بدی
             if (navigator.share) {
@@ -222,6 +289,9 @@
             } else {
                 copyLinkToClipboard();
             }
+
+            // بستن منو بعد از کلیک
+            toggleMenu();
         }
         // ==================== اتمام شیر کردن ویزیت ====================
         // ==================== تابع کمکی شیر کردن ویزیت ====================
@@ -267,6 +337,136 @@
             window.location.href = `weixin://dl/chat?${wechatId}`;
         }
         // ==================== اتمام بازکردن ویچت ====================
+        // ==================== توابع منوی همبرگری ====================
+        function toggleMenu() {
+            const menu = document.querySelector('.dropdown-menu');
+            menu.classList.toggle('active');
+        }
+
+        // بستن منو با کلیک بیرون
+        document.addEventListener('click', function (event) {
+            const menu = document.querySelector('.dropdown-menu');
+            const hamburger = document.querySelector('.hamburger-icon');
+
+            if (menu.classList.contains('active') &&
+                !hamburger.contains(event.target) &&
+                !menu.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+
+        // تابع کپی لینک
+        function copyLink() {
+            const link = window.location.href;
+            navigator.clipboard.writeText(link)
+                .then(() => {
+                    alert(translations[currentLang].copyLink + ' ✅');
+                })
+                .catch(() => {
+                    const tempInput = document.createElement('input');
+                    tempInput.value = link;
+                    document.body.appendChild(tempInput);
+                    tempInput.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempInput);
+                    alert(translations[currentLang].copyLink + ' ✅');
+                });
+
+            toggleMenu(); // بستن منو
+        }
+
+        // تابع ذخیره عکس
+        function saveAsImage() {
+            toggleMenu();
+
+            setTimeout(() => {
+                const tempDiv = document.createElement('div');
+                tempDiv.style.cssText = `
+            position: fixed;
+            top: -9999px;
+            left: -9999px;
+            width: 420px;
+            background: #f5f5dc;
+            padding: 20px;
+            border-radius: 15px;
+            font-family: 'Vazir', sans-serif;
+            direction: rtl;
+            color: #2c2c2c;
+            line-height: 1.5;
+        `;
+
+                // استفاده از آدرس انگلیسی برای عکس
+                const englishAddress = "Qeshm - City Center 2 - Lane A - No 1780";
+
+                tempDiv.innerHTML = `
+            <div style="text-align: center; margin-bottom: 20px;">
+                <h1 style="color: mediumblue; margin: 0; font-size: 24px;">${translations[currentLang].name}</h1>
+                <h2 style="color: #4d4dff; margin: 5px 0 0 0; font-size: 18px;">${translations[currentLang].subtitle}</h2>
+            </div>
+            
+            <div style="text-align: center; color: #333; font-weight: bold; margin: 20px 0; font-size: 16px;">
+                ${translations[currentLang].importText}
+            </div>
+            
+            <!-- تلفن اول با متن -->
+            <div style="display: flex; align-items: center; justify-content: space-between; background: #e8d8b6; padding: 12px 15px; border-radius: 10px; margin: 10px 0;">
+                <strong style="font-size: 16px;">09133840366</strong>
+                <div style="display: flex; gap: 10px; font-size: 12px;">
+                    <span>تماس</span>
+                    <span>پیامک</span>
+                </div>
+            </div>
+            
+            <!-- تلفن دوم با متن -->
+            <div style="display: flex; align-items: center; justify-content: space-between; background: #e8d8b6; padding: 12px 15px; border-radius: 10px; margin: 10px 0;">
+                <strong style="font-size: 16px;">09365098808</strong>
+                <div style="display: flex; gap: 10px; font-size: 12px;">
+                    <span>واتساپ</span>
+                    <span>تلگرام</span>
+                </div>
+            </div>
+            
+            <!-- وبسایت -->
+            <div style="background: #e8d8b6; padding: 12px 15px; border-radius: 10px; margin: 10px 0; text-align: center;">
+                <strong style="font-size: 14px;">${translations[currentLang].website}</strong>
+            </div>
+            
+            <!-- آدرس انگلیسی در یک خط -->
+            <div style="background: #e8d8b6; padding: 12px 15px; border-radius: 10px; margin: 10px 0; text-align: center;">
+                <strong style="font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${englishAddress}</strong>
+            </div>
+            
+            <!-- شبکه‌های اجتماعی -->
+            <div style="display: flex; justify-content: center; gap: 25px; margin: 15px 0;">
+                <div style="text-align: center;">
+                    <strong style="font-size: 11px;">ویچت<br>Reza_sd1984</strong>
+                </div>
+                <div style="text-align: center;">
+                    <strong style="font-size: 11px;">اینستاگرام<br>Home1Plus</strong>
+                </div>
+            </div>
+        `;
+
+                document.body.appendChild(tempDiv);
+
+                html2canvas(tempDiv, {
+                    scale: 2,
+                    backgroundColor: '#f5f5dc'
+                }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = 'RezaSD-BCard.png';
+                    link.href = canvas.toDataURL();
+                    link.click();
+                    document.body.removeChild(tempDiv);
+                    alert('✅ ' + translations[currentLang].saveImage);
+                }).catch(error => {
+                    document.body.removeChild(tempDiv);
+                    alert('❌ خطا در ذخیره');
+                });
+            }, 300);
+        }
+
+        // ====================اتمام توابع منوی همبرگری ====================
 
     </script>
 

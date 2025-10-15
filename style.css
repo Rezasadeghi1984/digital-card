@@ -12,6 +12,102 @@
     font-style: normal;
 }
 
+/* ==================== انیمیشن های جدید ==================== */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveToCenter {
+    from {
+        opacity: 0;
+        transform: translate(-100px, -100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes spreadFromCenter {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(var(--final-x), var(--final-y));
+    }
+}
+
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ==================== کلاس های انیمیشن ==================== */
+.animated-element {
+    opacity: 0;
+    animation: moveToCenter 0.6s ease-out forwards, fadeInContent 0.3s ease-out 0.6s forwards;
+}
+/* کلاس های تایمینگ اختصاصی */
+/* تلفن اول (آخر) */
+.phone-first {
+    animation-delay: 0.8s;
+}
+/* تلفن دوم */
+.phone-second {
+    animation-delay: 0.6s;
+}
+/* شبکه‌ها */
+.socials {
+    animation-delay: 0.4s;
+}
+/* وبسایت */
+.website {
+    animation-delay: 0.2s;
+}
+/* آدرس (اول) */
+.address {
+    animation-delay: 0s;
+}  
+
 body {
     display: flex;
     justify-content: center;
@@ -100,7 +196,7 @@ body {
     }
 
 /*  ==================== دکمه شیر ==================== */
-.share-icon {
+/*.share-icon {
     font-size: 1.6rem; 
     color: #2c2c2c;
     cursor: pointer;
@@ -110,6 +206,97 @@ body {
     .share-icon:hover {
         transform: scale(1.1);
         color: #8b4513;
+        animation: pulse 0.6s ease-in-out;
+    }*/
+
+
+
+/* ==================== منوی همبرگری ==================== */
+.hamburger-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* آیکون همبرگری */
+.hamburger-icon {
+    width: 30px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 5px;
+}
+
+    .hamburger-icon span {
+        height: 3px;
+        width: 100%;
+        background-color: #2c2c2c;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger-icon:hover span {
+        background-color: #8b4513;
+    }
+
+/* منوی کشویی */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 35px);
+    left: 0;
+    width: 200px;
+    background: rgba(0, 128, 128, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+    /* وقتی منو باز است */
+    .dropdown-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+/*////////////////////////////
+        /* آیتم‌های منو */
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    height: 50px;
+    box-sizing: border-box;
+}
+
+    .menu-item:last-child {
+        border-bottom: none;
+    }
+
+    .menu-item:hover {
+        background: rgba(0, 128, 128, 0.2);
+        animation: pulse 0.6s ease-in-out;
+    }
+
+    .menu-item i {
+        width: 20px;
+        margin-left: 10px;
+        color: #2c2c2c;
+    }
+
+    .menu-item span {
+        font-family: 'Vazir', Tahoma, sans-serif;
+        font-size: 1rem;
+        color: #2c2c2c;
+        font-weight: bold;
     }
 
 /*  ==================== لوگو ==================== */
@@ -126,7 +313,9 @@ body {
     max-height: 180px;
     width: auto;
     height: auto;
+    animation: float 3s ease-in-out infinite;
 }
+
 
 /*  ==================== متن زیر لوگو ==================== */
 .import-text {
@@ -136,6 +325,7 @@ body {
     color: #333;
     margin: 0px 0;
     font-weight: bold;
+    animation: float 3s ease-in-out infinite;
 }
 
 /*  ==================== تلفن ها ==================== */
@@ -156,6 +346,7 @@ body {
     width: 95%;
     max-width: 380px;
     box-sizing: border-box;
+    animation: slideIn 1.4s ease-out;
 }
 
 .phone-link {
@@ -183,6 +374,7 @@ body {
     .save-contact:hover {
         transform: scale(1.2);
         color: #8b4513;
+        animation: pulse 0.6s ease-in-out;
     }
 
 /*  ==================== شبکه های اجتماعی ==================== */
@@ -203,6 +395,7 @@ body {
     width: 95%;
     max-width: 380px;
     box-sizing: border-box;
+    animation: slideIn 1.4s ease-out;
 }
 
 .social-item {
@@ -217,6 +410,7 @@ body {
 
     .social-item:hover {
         transform: scale(1.2);
+        animation: pulse 0.6s ease-in-out;
     }
 
 .social-icon {
@@ -224,7 +418,10 @@ body {
     height: 55px;
     object-fit: contain;
     border-radius: 10px;
+    animation: slideIn 1.4s ease-o;
 }
+
+
 
 /*  ==================== وبسایت ==================== */
 .website-section {
@@ -251,6 +448,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: slideIn 1.4s ease-out;
 }
 
     .website-link:hover {
@@ -284,12 +482,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: slideIn 1.4s ease-out;
 }
 
     .address-link:hover {
         color: #fff;
         background-color: #c08b5a;
-        transform: scale(1.05);
+        transform: scale(1.03);
     }
 
 /*  ==================== کیو آر کد و دکمه تغییر زبان ==================== */
