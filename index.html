@@ -589,9 +589,19 @@
             if (isFlipped) {
                 card3d.style.transform = 'rotateY(180deg) scale(1.02)';
                 card3d.style.boxShadow = '0 15px 35px rgba(139, 69, 19, 0.4)';
+                //حذف کامپوننتهای پایین
+                document.querySelector('.hamburger-menu').style.display = 'none';
+                document.querySelector('.qrcode-language-container').style.display = 'none';
+                document.querySelector('.address-section').style.display = 'none';
+                document.querySelector('.website-section').style.display = 'none';
             } else {
                 card3d.style.transform = 'rotateY(0deg) scale(1.02)';
                 card3d.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.3)';
+                //نمایش کامپوننتهای پایین
+                document.querySelector('.hamburger-menu').style.display = 'flex';
+                document.querySelector('.qrcode-language-container').style.display = 'flex';
+                document.querySelector('.address-section').style.display = 'flex';
+                document.querySelector('.website-section').style.display = 'flex';
             }
 
             // بازگشت به حالت نرمال بعد از انیمیشن
@@ -625,6 +635,7 @@
             updateAllTexts(); // این خط از قبل وجود داره - فقط مطمئن شو
         });
 
+       
         //=================================================================
         // ==================== توابع دارک مود ====================
         // ==================== توابع دارک مود ====================
