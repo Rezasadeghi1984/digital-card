@@ -154,12 +154,14 @@
 body {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
     margin: 0;
     padding: 15px;
     background-color: var(--bg-primary);
     box-sizing: border-box;
+    padding: 0 !important; /* این خط رو پیدا کن */
+    margin: 0 !important; /* و این رو */
 }
 
 .business-card {
@@ -596,8 +598,10 @@ body {
     perspective: 1000px;
     width: 95vw;
     max-width: 420px;
-    margin: 20px auto;
+    margin: 0 auto;
     cursor: pointer;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .card-3d {
