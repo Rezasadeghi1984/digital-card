@@ -183,7 +183,10 @@
                         <div class="service-item" id="item3">🚢 واردات از چین و امارات</div>
                         <div class="service-item" id="item4">📦 پخش کالا برای تمام ایران</div>
                         <div class="service-item" id="item5">🌍 قیمت های رقابتی در کل کشور</div>
-                        <div class="service-item" id="item6">💼 مشاوره تخصصی رایگان</div>
+                        <!--<div class="service-item" id="item6">💼 مشاوره تخصصی رایگان</div>-->
+                        <div class="service-item" id="item6" onclick="copyEmail(event)">
+                            📧 rezabusiness1984@gmail.com
+                        </div>
                     </div>
 
                     <div class="flip-hint" id="hint">
@@ -236,8 +239,9 @@
                 item3: "🚢 واردات از چین و امارات",
                 item4: "📦 پخش کالا برای تمام ایران",
                 item5: "🌍 قیمت‌های رقابتی در کل کشور",
-                item6: "💼 مشاوره تخصصی رایگان",
-
+                //item6: "💼 مشاوره تخصصی رایگان",
+                item6: "📧 rezabusiness1984@gmail.com",
+                emailCopied: "ایمیل کپی شد: {email}",
                 //دارک مود
                 darkMode: "حالت شب",
 
@@ -266,7 +270,9 @@
                 item3: "🚢 Import from China & UAE",
                 item4: "📦 Distribution Across Iran",
                 item5: "🌍 Competitive Prices Nationwide",
-                item6: "💼 Free Professional Consultation",
+                //item6: "💼 Free Professional Consultation",
+                item6: "📧 rezabusiness1984@gmail.com",
+                emailCopied: "Email copied: {email}",
                 darkMode: "Dark Mode",
                 langButton: "فا/中文"
             },
@@ -292,7 +298,9 @@
                 item3: "🚢 从中国和阿联酋进口",
                 item4: "📦 伊朗全国分销",
                 item5: "🌍 全国竞争性价格",
-                item6: "💼 免费专业咨询",
+                //item6: "💼 免费专业咨询",
+                item6: "📧 rezabusiness1984@gmail.com",
+                emailCopied: "电子邮件已复制: {email}",
                 darkMode: "夜间模式",
                 langButton: "فا/EN"
             }
@@ -741,6 +749,31 @@
             applyDarkMode();
             updateAllTexts();
         });
+
+        //کپی ایمیل
+        function copyEmail(event) {
+            // جلوگیری از انتشار رویداد به والدین (کارت)
+            event.stopPropagation();
+
+            const email = "rezabusiness1984@gmail.com";
+            navigator.clipboard.writeText(email)
+                .then(() => {
+                    const message = translations[currentLang].emailCopied.replace('{email}', email);
+                    alert(message);
+                })
+                .catch(() => {
+                    const tempInput = document.createElement('input');
+                    tempInput.value = email;
+                    document.body.appendChild(tempInput);
+                    tempInput.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempInput);
+                    const message = translations[currentLang].emailCopied.replace('{email}', email);
+                    alert(message);
+                });
+        }
+
+
     </script>
 
 </body>
