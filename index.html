@@ -11,140 +11,184 @@
 </head>
 
 <body>
-    <div class="business-card">
-        <div class="header">
-            <div class="right-section">
-                <img src="./assets/MyPic.JPG" alt="رضا صادقی" class="profile-pic">
-                <div class="name-section">
-                    <span class="name" id="nameText">رضا صادقی</span>
-                    <span class="subtitle" id="subtitleText">بازرگانی هوم پلاس</span>
-                </div>
-            </div>
+    <!-- کارت 3D -->
+    <div class="card-3d-container" onclick="flipCard()">
+        <div class="card-3d">
+            <!-- جلوی کارت (محتوای اصلی) -->
+            <div class="card-front">
+                <div class="business-card">
+                    <div class="header">
+                        <div class="right-section">
+                            <img src="./assets/MyPic.JPG" alt="رضا صادقی" class="profile-pic">
+                            <div class="name-section">
+                                <span class="name" id="nameText">رضا صادقی</span>
+                                <span class="subtitle" id="subtitleText">بازرگانی هوم پلاس</span>
+                            </div>
+                        </div>
 
-            <!-- منوی همبرگری - -->
-            <div class="hamburger-menu">
-                <!-- آیکون همبرگری -->
-                <div class="hamburger-icon" onclick="toggleMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+                        <!-- منوی همبرگری -->
+                        <div class="hamburger-menu">
+                            <!-- آیکون همبرگری -->
+                            <div class="hamburger-icon" onclick="toggleMenu()">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
 
-                <!-- منوی کشویی -->
-                <div class="dropdown-menu">
-                    <!-- اشتراک گذاری -->
-                    <div class="menu-item" onclick="shareCard()">
-                        <i class="fas fa-share-alt"></i>
-                        <span>اشتراک‌گذاری</span>
+                            <!-- منوی کشویی -->
+                            <div class="dropdown-menu">
+                                <!-- اشتراک گذاری -->
+                                <div class="menu-item" onclick="shareCard()">
+                                    <i class="fas fa-share-alt"></i>
+                                    <span>اشتراک‌گذاری</span>
+                                </div>
+
+                                <!-- ذخیره عکس -->
+                                <div class="menu-item" onclick="saveAsImage()">
+                                    <i class="fas fa-camera"></i>
+                                    <span>ذخیره عکس</span>
+                                </div>
+
+                                <!-- تغییر زبان -->
+                                <div class="menu-item" onclick="toggleLanguage()">
+                                    <i class="fas fa-globe"></i>
+                                    <span>تغییر زبان</span>
+                                </div>
+
+                                <!-- کپی لینک -->
+                                <div class="menu-item" onclick="copyLink()">
+                                    <i class="fas fa-link"></i>
+                                    <span>کپی لینک</span>
+                                </div>
+
+                                <!-- دارک مود -->
+                                <div class="menu-item" onclick="toggleDarkMode()">
+                                    <i class="fas fa-moon"></i>
+                                    <span id="darkModeText">حالت شب</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- ذخیره عکس -->
-                    <div class="menu-item" onclick="saveAsImage()">
-                        <i class="fas fa-camera"></i>
-                        <span>ذخیره عکس</span>
+                    <!-- لوگو وسط صفحه -->
+                    <div class="logo-container">
+                        <img src="./assets/Logo.png" alt="لوگو" class="logo">
                     </div>
 
-                    <!-- تغییر زبان -->
-                    <div class="menu-item" onclick="toggleLanguage()">
-                        <i class="fas fa-globe"></i>
-                        <span>تغییر زبان</span>
+                    <!-- متن زیر لوگو -->
+                    <div class="import-text" id="importText">واردات کالا مستقیم از چین و امارات</div>
+
+                    <!-- شماره تلفن و آیکون ذخیره -->
+                    <div class="phone-section animated-element phone-first">
+                        <div class="phone-item">
+                            <a href="tel:09133840366" class="phone-link">09133840366</a>
+                            <div class="save-contact" onclick="saveContact('09133840366')">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- کپی لینک -->
-                    <div class="menu-item" onclick="copyLink()">
-                        <i class="fas fa-link"></i>
-                        <span>کپی لینک</span>
+                    <!-- شماره تلفن دوم -->
+                    <div class="phone-section animated-element phone-second">
+                        <div class="phone-item">
+                            <a href="tel:09365098808" class="phone-link">09365098808</a>
+                            <div class="save-contact" onclick="saveContact('09365098808')">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- شبکه‌های اجتماعی -->
+                    <div class="social-section animated-element socials">
+                        <div class="social-container">
+                            <!-- واتساپ -->
+                            <a href="https://wa.me/989365098808" class="social-item" target="_blank">
+                                <img src="./assets/whatsapp.png" alt="واتساپ" class="social-icon">
+                            </a>
+
+                            <!-- اینستاگرام -->
+                            <a href="https://instagram.com/Home1Plus" class="social-item" target="_blank">
+                                <img src="./assets/instagram.png" alt="اینستاگرام" class="social-icon">
+                            </a>
+
+                            <!-- تلگرام -->
+                            <a href="https://t.me/09365098808" class="social-item" target="_blank">
+                                <img src="./assets/telegram.png" alt="تلگرام" class="social-icon">
+                            </a>
+
+                            <!-- ویچت -->
+                            <div class="social-item" onclick="openWechatId()">
+                                <img src="./assets/wechat.png" alt="ویچت" class="social-icon">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- آدرس سایت -->
+                    <div class="website-section animated-element website">
+                        <a href="https://www.HomePlus-Shop.ir" class="website-link" target="_blank" id="websiteText">www.HomePlus-Shop.ir</a>
+                    </div>
+
+                    <!-- آدرس فیزیکی -->
+                    <div class="address-section animated-element address">
+                        <a href="https://maps.google.com/?q=26.937831313545484,56.273848376665676" class="address-link" target="_blank" id="addressText">قشم-سیتی سنتر2-لاینA-پلاک1780</a>
+                    </div>
+
+                    <!-- کیوآرکد و دکمه زبان -->
+                    <div class="qrcode-language-container">
+                        <!-- کیوآرکد ویچت -->
+                        <div class="qrcode-section">
+                            <img src="./assets/WeChatQR-light.png" alt="QR Code" class="qrcode light-qr">
+                            <img src="./assets/WeChatQR-dark.png" alt="QR Code" class="qrcode dark-qr">
+                        </div>
+
+                        <!-- دکمه تغییر زبان -->
+                        <div class="language-switcher">
+                            <button onclick="toggleLanguage()" class="lang-btn">
+                                <span id="langText">EN/中文</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- پشت کارت (جدید) -->
+            <div class="card-back">
+                <div class="business-card">
+                    <div class="header">
+                        <div class="right-section">
+                            <img src="./assets/MyPic.JPG" alt="رضا صادقی" class="profile-pic">
+                            <div class="name-section">
+                                <span class="name" id="servicesTitle">خدمات ما</span>
+                                <span class="subtitle">Home Plus Services</span>
+                            </div>
+                        </div>
+                    </div>
 
-        </div>
+                    <!-- محتوای پشت کارت -->
+                    <div class="services-section">
+                        <div class="experience-badge" id="badge">
+                            ⭐ بیش از ۱۵ سال سابقه درخشان
+                        </div>
+                        <div class="service-item" id="item1">🏠 لوازم خانگی برقی</div>
+                        <div class="service-item" id="item2">📱 لوازم موبایل و تبلت</div>
+                        <div class="service-item" id="item3">🚢 واردات از چین و امارات</div>
+                        <div class="service-item" id="item4">📦 پخش کالا برای تمام ایران</div>
+                        <div class="service-item" id="item5">🌍 قیمت های رقابتی در کل کشور</div>
+                        <div class="service-item" id="item6">💼 مشاوره تخصصی رایگان</div>
+                    </div>
 
-
-        <!-- لوگو وسط صفحه -->
-        <div class="logo-container">
-            <img src="./assets/Logo.png" alt="لوگو" class="logo">
-        </div>
-
-        <!-- متن زیر لوگو -->
-        <div class="import-text" id="importText">واردات کالا مستقیم از چین و امارات</div>
-
-
-        <!-- شماره تلفن و آیکون ذخیره -->
-        <div class="phone-section animated-element phone-first">
-            <div class="phone-item">
-                <a href="tel:09133840366" class="phone-link">09133840366</a>
-                <div class="save-contact" onclick="saveContact('09133840366')">
-                    <i class="fas fa-user-plus"></i>
+                    <div class="flip-hint" id="hint">
+                        ⬅️ برای بازگشت کلیک کنید
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- شماره تلفن دوم -->
-        <div class="phone-section animated-element phone-second">
-            <div class="phone-item">
-                <a href="tel:09365098808" class="phone-link">09365098808</a>
-                <div class="save-contact" onclick="saveContact('09365098808')">
-                    <i class="fas fa-user-plus"></i>
-                </div>
-            </div>
-        </div>
-
-        <!-- شبکه‌های اجتماعی -->
-        <div class="social-section animated-element socials">
-            <div class="social-container">
-                <!-- واتساپ -->
-                <a href="https://wa.me/989365098808" class="social-item" target="_blank">
-                    <img src="./assets/whatsapp.png" alt="واتساپ" class="social-icon">
-                </a>
-
-                <!-- اینستاگرام -->
-                <a href="https://instagram.com/Home1Plus" class="social-item" target="_blank">
-                    <img src="./assets/instagram.png" alt="اینستاگرام" class="social-icon">
-                </a>
-
-                <!-- تلگرام -->
-                <a href="https://t.me/09365098808" class="social-item" target="_blank">
-                    <img src="./assets/telegram.png" alt="تلگرام" class="social-icon">
-                </a>
-
-                <!-- ویچت -->
-                <div class="social-item" onclick="openWechatId()">
-                    <img src="./assets/wechat.png" alt="ویچت" class="social-icon">
-                </div>
-            </div>
-        </div>
-
-        <!-- آدرس سایت -->
-        <div class="website-section animated-element website">
-            <a href="https://www.HomePlus-Shop.ir" class="website-link" target="_blank" id="websiteText">www.HomePlus-Shop.ir</a>
-        </div>
-
-        <!-- آدرس فیزیکی -->
-        <div class="address-section animated-element address">
-            <a href="https://maps.google.com/?q=26.937831313545484,56.273848376665676" class="address-link" target="_blank" id="addressText">قشم-سیتی سنتر2-لاینA-پلاک1780</a>
-        </div>
-
-        <!-- کیوآرکد و دکمه زبان -->
-        <div class="qrcode-language-container">
-            <!-- کیوآرکد ویچت -->
-            <div class="qrcode-section">
-                <img src="./assets/WeChatQR.png" alt="کیوآرکد ویچت" class="qrcode">
-            </div>
-
-            <!-- دکمه تغییر زبان -->
-            <div class="language-switcher">
-                <button onclick="toggleLanguage()" class="lang-btn">
-                    <span id="langText">EN/中文</span>
-                </button>
-            </div>
-        </div>
-
     </div>
+
 
     <!-- کتابخانه ذخیره عکس -->
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
 
     <script>
 
@@ -174,6 +218,20 @@
                 website: "www.HomePlus-Shop.ir",
                 address: "قشم-سیتی سنتر2-لاینA-پلاک1780",
 
+                //پشت کارت
+                servicesTitle: "خدمات ما",
+                badge: " ⭐ بیش از ۱۵ سال سابقه درخشان",
+                hint:"⬅️ برای بازگشت کلیک کنید",
+                item1: "🏠 لوازم خانگی برقی",
+                item2: "📱 لوازم موبایل و تبلت",
+                item3: "🚢 واردات از چین و امارات",
+                item4: "📦 پخش کالا برای تمام ایران",
+                item5: "🌍 قیمت‌های رقابتی در کل کشور",
+                item6: "💼 مشاوره تخصصی رایگان",
+
+                //دارک مود
+                darkMode: "حالت شب",
+
                 // متن دکمه زبان
                 langButton: "EN/中文"
             },
@@ -191,6 +249,16 @@
                 shareText: "Digital Business Card 📱\nDirect import from China and UAE 🚢",
                 website: "www.HomePlus-Shop.ir",
                 address: "Qeshm-City Center2-LaneA-No1780",
+                servicesTitle: "Our Services",
+                badge: "⭐ Over 15 Years of Brilliant Experience",
+                hint: "⬅️ Click to return",
+                item1: "🏠 Home Electrical Appliances",
+                item2: "📱 Mobile & Tablet Accessories",
+                item3: "🚢 Import from China & UAE",
+                item4: "📦 Distribution Across Iran",
+                item5: "🌍 Competitive Prices Nationwide",
+                item6: "💼 Free Professional Consultation",
+                darkMode: "Dark Mode",
                 langButton: "فا/中文"
             },
             zh: {
@@ -207,13 +275,22 @@
                 shareText: "数字名片 📱\n直接从中国和阿联酋进口 🚢",
                 website: "www.HomePlus-Shop.ir",
                 address: "格什姆-城市中心2-A通道-1780号",
+                servicesTitle: "我们的服务",
+                badge: "⭐ 超过15年的辉煌经验",
+                hint: "⬅️ 点击返回",
+                item1: "🏠 家用电器",
+                item2: "📱 手机和平板配件",
+                item3: "🚢 从中国和阿联酋进口",
+                item4: "📦 伊朗全国分销",
+                item5: "🌍 全国竞争性价格",
+                item6: "💼 免费专业咨询",
+                darkMode: "夜间模式",
                 langButton: "فا/EN"
             }
         };
 
         // زبان پیش‌فرض
         let currentLang = 'fa';
-        // ==================== پایان ساختار داده ====================
         // ==================== توابع تغییر زبان ====================
         function toggleLanguage() {
             // چرخش بین زبان‌ها: فارسی -> انگلیسی -> چینی -> فارسی
@@ -231,7 +308,12 @@
             document.getElementById('langText').textContent = translations[currentLang].langButton;
 
             // آپدیت نام و زیرعنوان
-            document.querySelector('.name').textContent = translations[currentLang].name;
+            //document.querySelector('.name').textContent = translations[currentLang].name;
+            // فقط جلوی کارت - اسم رضا صادقی
+            document.querySelector('.card-front .name').textContent = translations[currentLang].name;
+
+            // فقط پشت کارت - متن "خدمات ما"  
+            document.querySelector('.card-back .name').textContent = translations[currentLang].servicesTitle;
             document.querySelector('.subtitle').textContent = translations[currentLang].subtitle;
 
             // آپدیت متن واردات
@@ -252,13 +334,36 @@
             document.querySelectorAll('.menu-item span').forEach((span, index) => {
                 if (menuTexts[index]) span.textContent = menuTexts[index];
             });
+
+            // آپدیت متن‌های پشت کارت
+            for (let i = 1; i <= 6; i++) {
+                const element = document.getElementById('item' + i);
+                if (element) {
+                    element.textContent = translations[currentLang]['item' + i];
+                }
+            }
+            // آپدیت هدر پشت کارت و hint
+            const backCardName = document.querySelector('.card-back .name');
+            const backCardSubtitle = document.querySelector('.card-back .subtitle');
+            const experienceBadge = document.querySelector('.experience-badge');
+            const flipHint = document.querySelector('.flip-hint');
+
+            if (backCardName) backCardName.textContent = translations[currentLang].servicesTitle;
+            if (backCardSubtitle) backCardSubtitle.textContent = translations[currentLang].subtitle;
+            if (experienceBadge) experienceBadge.textContent = translations[currentLang].badge;
+            if (flipHint) flipHint.textContent = translations[currentLang].hint;
+            // آپدیت متن دکمه دارک مود
+            const darkModeText = document.getElementById('darkModeText');
+            if (darkModeText) {
+                darkModeText.textContent = translations[currentLang].darkMode;
+            }
+
         }
 
         // آپدیت اولیه هنگام لود صفحه
         document.addEventListener('DOMContentLoaded', function () {
             updateAllTexts();
         });
-        // ==================== پایان توابع تغییر زبان ====================
         // ==================== شیر کردن کارت ویزیت ====================
         function shareCard() {
             // اضافه کردن انیمیشن به آیکون
@@ -293,7 +398,6 @@
             // بستن منو بعد از کلیک
             toggleMenu();
         }
-        // ==================== اتمام شیر کردن ویزیت ====================
         // ==================== تابع کمکی شیر کردن ویزیت ====================
         function copyLinkToClipboard() {
             const shareText = `${translations[currentLang].shareTitle}\n${translations[currentLang].shareText}\n${window.location.href}`;
@@ -312,7 +416,6 @@
                     alert('مرورگر شما از اشتراک‌گذاری مستقیم پشتیبانی نمی‌کند.\n\nلینک کارت ویزیت کپی شد! می‌توانید در شبکه‌های اجتماعی به اشتراک بگذارید. 📤');
                 });
         }
-        // ====================اتمام تابع کمکی شیر کردن ویزیت ====================
         // ==================== تابع ذخیره شماره تلفن ها ====================
         function saveContact(phone) {
             const name = translations[currentLang].name;
@@ -329,14 +432,12 @@
             const alertMessage = translations[currentLang].saveContactAlert.replace('{name}', name);
             alert(alertMessage);
         }
-        // ====================اتمام تابع ذخیره شماره تلفن ها ====================
         // ==================== بازکردن ویچت ====================
         function openWechatId() {
             const wechatId = 'Reza_sd1984';
             alert(translations[currentLang].wechatAlert);
             window.location.href = `weixin://dl/chat?${wechatId}`;
         }
-        // ==================== اتمام بازکردن ویچت ====================
         // ==================== توابع منوی همبرگری ====================
         function toggleMenu() {
             const menu = document.querySelector('.dropdown-menu');
@@ -382,70 +483,70 @@
             setTimeout(() => {
                 const tempDiv = document.createElement('div');
                 tempDiv.style.cssText = `
-            position: fixed;
-            top: -9999px;
-            left: -9999px;
-            width: 420px;
-            background: #f5f5dc;
-            padding: 20px;
-            border-radius: 15px;
-            font-family: 'Vazir', sans-serif;
-            direction: rtl;
-            color: #2c2c2c;
-            line-height: 1.5;
-        `;
+                        position: fixed;
+                        top: -9999px;
+                        left: -9999px;
+                        width: 420px;
+                        background: #f5f5dc;
+                        padding: 20px;
+                        border-radius: 15px;
+                        font-family: 'Vazir', sans-serif;
+                        direction: rtl;
+                        color: #2c2c2c;
+                        line-height: 1.5;
+                    `;
 
                 // استفاده از آدرس انگلیسی برای عکس
                 const englishAddress = "Qeshm - City Center 2 - Lane A - No 1780";
 
                 tempDiv.innerHTML = `
-            <div style="text-align: center; margin-bottom: 20px;">
-                <h1 style="color: mediumblue; margin: 0; font-size: 24px;">${translations[currentLang].name}</h1>
-                <h2 style="color: #4d4dff; margin: 5px 0 0 0; font-size: 18px;">${translations[currentLang].subtitle}</h2>
-            </div>
-            
-            <div style="text-align: center; color: #333; font-weight: bold; margin: 20px 0; font-size: 16px;">
-                ${translations[currentLang].importText}
-            </div>
-            
-            <!-- تلفن اول با متن -->
-            <div style="display: flex; align-items: center; justify-content: space-between; background: #e8d8b6; padding: 12px 15px; border-radius: 10px; margin: 10px 0;">
-                <strong style="font-size: 16px;">09133840366</strong>
-                <div style="display: flex; gap: 10px; font-size: 12px;">
-                    <span>تماس</span>
-                    <span>پیامک</span>
-                </div>
-            </div>
-            
-            <!-- تلفن دوم با متن -->
-            <div style="display: flex; align-items: center; justify-content: space-between; background: #e8d8b6; padding: 12px 15px; border-radius: 10px; margin: 10px 0;">
-                <strong style="font-size: 16px;">09365098808</strong>
-                <div style="display: flex; gap: 10px; font-size: 12px;">
-                    <span>واتساپ</span>
-                    <span>تلگرام</span>
-                </div>
-            </div>
-            
-            <!-- وبسایت -->
-            <div style="background: #e8d8b6; padding: 12px 15px; border-radius: 10px; margin: 10px 0; text-align: center;">
-                <strong style="font-size: 14px;">${translations[currentLang].website}</strong>
-            </div>
-            
-            <!-- آدرس انگلیسی در یک خط -->
-            <div style="background: #e8d8b6; padding: 12px 15px; border-radius: 10px; margin: 10px 0; text-align: center;">
-                <strong style="font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${englishAddress}</strong>
-            </div>
-            
-            <!-- شبکه‌های اجتماعی -->
-            <div style="display: flex; justify-content: center; gap: 25px; margin: 15px 0;">
-                <div style="text-align: center;">
-                    <strong style="font-size: 11px;">ویچت<br>Reza_sd1984</strong>
-                </div>
-                <div style="text-align: center;">
-                    <strong style="font-size: 11px;">اینستاگرام<br>Home1Plus</strong>
-                </div>
-            </div>
-        `;
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <h1 style="color: mediumblue; margin: 0; font-size: 24px;">${translations[currentLang].name}</h1>
+                            <h2 style="color: #4d4dff; margin: 5px 0 0 0; font-size: 18px;">${translations[currentLang].subtitle}</h2>
+                        </div>
+
+                        <div style="text-align: center; color: #333; font-weight: bold; margin: 20px 0; font-size: 16px;">
+                            ${translations[currentLang].importText}
+                        </div>
+
+                        <!-- تلفن اول با متن -->
+                        <div style="display: flex; align-items: center; justify-content: space-between; background: #e8d8b6; padding: 12px 15px; border-radius: 10px; margin: 10px 0;">
+                            <strong style="font-size: 16px;">09133840366</strong>
+                            <div style="display: flex; gap: 10px; font-size: 12px;">
+                                <span>تماس</span>
+                                <span>پیامک</span>
+                            </div>
+                        </div>
+
+                        <!-- تلفن دوم با متن -->
+                        <div style="display: flex; align-items: center; justify-content: space-between; background: #e8d8b6; padding: 12px 15px; border-radius: 10px; margin: 10px 0;">
+                            <strong style="font-size: 16px;">09365098808</strong>
+                            <div style="display: flex; gap: 10px; font-size: 12px;">
+                                <span>واتساپ</span>
+                                <span>تلگرام</span>
+                            </div>
+                        </div>
+
+                        <!-- وبسایت -->
+                        <div style="background: #e8d8b6; padding: 12px 15px; border-radius: 10px; margin: 10px 0; text-align: center;">
+                            <strong style="font-size: 14px;">${translations[currentLang].website}</strong>
+                        </div>
+
+                        <!-- آدرس انگلیسی در یک خط -->
+                        <div style="background: #e8d8b6; padding: 12px 15px; border-radius: 10px; margin: 10px 0; text-align: center;">
+                            <strong style="font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${englishAddress}</strong>
+                        </div>
+
+                        <!-- شبکه‌های اجتماعی -->
+                        <div style="display: flex; justify-content: center; gap: 25px; margin: 15px 0;">
+                            <div style="text-align: center;">
+                                <strong style="font-size: 11px;">ویچت<br>Reza_sd1984</strong>
+                            </div>
+                            <div style="text-align: center;">
+                                <strong style="font-size: 11px;">اینستاگرام<br>Home1Plus</strong>
+                            </div>
+                        </div>
+                    `;
 
                 document.body.appendChild(tempDiv);
 
@@ -465,9 +566,151 @@
                 });
             }, 300);
         }
+        //=================================================================
+        // ==================== توابع کارت 3D حرفه‌ای ====================
+        let isFlipped = false;
+        let isAnimating = false;
 
-        // ====================اتمام توابع منوی همبرگری ====================
+        function flipCard() {
+            if (isAnimating) return;
 
+            const card3d = document.querySelector('.card-3d');
+            const menu = document.querySelector('.dropdown-menu');
+
+            // بستن منو اگر باز هست
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active');
+            }
+
+            isAnimating = true;
+            isFlipped = !isFlipped;
+
+            // افکت حرفه‌ای
+            if (isFlipped) {
+                card3d.style.transform = 'rotateY(180deg) scale(1.02)';
+                card3d.style.boxShadow = '0 15px 35px rgba(139, 69, 19, 0.4)';
+            } else {
+                card3d.style.transform = 'rotateY(0deg) scale(1.02)';
+                card3d.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.3)';
+            }
+
+            // بازگشت به حالت نرمال بعد از انیمیشن
+            setTimeout(() => {
+                card3d.style.transform = card3d.style.transform.replace('scale(1.02)', 'scale(1)');
+                isAnimating = false;
+            }, 300);
+        }
+
+        // جلوگیری از تداخل با منو
+        document.querySelector('.hamburger-menu').addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+       
+        document.querySelector('.card-3d-container').addEventListener('mouseenter', function () {
+            if (!isAnimating) {
+                // فقط سایه اضافه کن، scale نذار
+                this.querySelector('.card-3d').style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.2)';
+            }
+        });
+
+        document.querySelector('.card-3d-container').addEventListener('mouseleave', function () {
+            if (!isAnimating && !isFlipped) {
+                // فقط سایه رو برگردون
+                this.querySelector('.card-3d').style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            }
+        });
+        // بارگذاری اولیه دارک مود
+        document.addEventListener('DOMContentLoaded', function () {
+            loadDarkModePreference();
+            updateAllTexts(); // این خط از قبل وجود داره - فقط مطمئن شو
+        });
+
+        //=================================================================
+        // ==================== توابع دارک مود ====================
+        // ==================== توابع دارک مود ====================
+        let darkMode = false;
+
+        function toggleDarkMode() {
+            darkMode = !darkMode;
+            applyDarkMode();
+            toggleMenu(); // بستن منو بعد از کلیک
+        }
+
+        // تشخیص خودکار سیستم
+        function detectSystemTheme() {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                darkMode = true;
+                applyDarkMode();
+            }
+        }
+       
+        function applyDarkMode() {
+            const root = document.documentElement;
+
+            if (darkMode) {
+                // حالت دارک
+                root.style.setProperty('--bg-primary', 'var(--dark-bg)');
+                root.style.setProperty('--card-bg', 'var(--dark-card)');
+                root.style.setProperty('--header-bg', 'var(--dark-header)');
+                root.style.setProperty('--text-primary', 'var(--dark-text)');
+                root.style.setProperty('--text-secondary', 'var(--dark-text-secondary)');
+                root.style.setProperty('--accent-color', 'var(--dark-accent)');
+                root.style.setProperty('--accent-hover', 'var(--dark-accent-hover)');
+                root.style.setProperty('--name-color', 'var(--dark-name)');
+                root.style.setProperty('--section-bg', 'var(--dark-section)');
+                root.style.setProperty('--section-hover', 'var(--dark-section-hover)');
+                root.style.setProperty('--link-color', 'var(--dark-link-color)');
+                root.style.setProperty('--menu-bg', 'var(--dark-menu-bg)');
+                root.style.setProperty('--menu-text', 'var(--dark-menu-text)');
+                root.style.setProperty('--menu-icon', 'var(--dark-menu-icon)');
+                root.style.setProperty('--menu-hover-bg', 'var(--dark-menu-hover-bg)');
+                root.style.setProperty('--hamburger-color', 'var(--dark-hamburger-color)');
+                root.style.setProperty('--hamburger-hover-color', 'var(--dark-hamburger-hover-color)');
+                root.style.setProperty('--business-card-bg', 'var(--dark-business-card-bg)');
+                root.style.setProperty('--lang-btn', 'var(--accent-color)');
+                document.querySelector('.light-qr').style.display = 'none';
+                document.querySelector('.dark-qr').style.display = 'block';
+                document.querySelector('.experience-badge').style.background =
+                    'linear-gradient(45deg, #2a2a2a, #3a3a3a)';
+            } else {
+                // حالت لایت
+                root.style.setProperty('--bg-primary', 'darkolivegreen');
+                root.style.setProperty('--card-bg', '#f5f5dc');
+                root.style.setProperty('--header-bg', 'rgba(0, 128, 128, 0.3)');
+                root.style.setProperty('--text-primary', '#333');
+                root.style.setProperty('--text-secondary', '#4d4dff');
+                root.style.setProperty('--accent-color', '#8b4513');
+                root.style.setProperty('--accent-hover', '#654321');
+                root.style.setProperty('--name-color', 'mediumblue');
+                root.style.setProperty('--section-bg', '#e8d8b6');
+                root.style.setProperty('--section-hover', '#c08b5a');
+                root.style.setProperty('--link-color', '#2c2c2c');
+                root.style.setProperty('--menu-bg', 'rgba(0, 128, 128, 0.9)');
+                root.style.setProperty('--menu-text', '#2c2c2c');
+                root.style.setProperty('--menu-icon', '#2c2c2c');
+                root.style.setProperty('--menu-hover-bg', 'rgba(0, 128, 128, 0.9)');
+                root.style.setProperty('--hamburger-color', '#2c2c2c');
+                root.style.setProperty('--hamburger-hover-color', '#8b4513');
+                root.style.setProperty('--business-card-bg', '#f5f5dc');
+                root.style.setProperty('--lang-btn', 'darkolivegreen');
+                document.querySelector('.light-qr').style.display = 'block';
+                document.querySelector('.dark-qr').style.display = 'none';
+                document.querySelector('.experience-badge').style.background =
+                    'linear-gradient(45deg, #8b4513, #654321)';
+            }
+        }
+
+        // تشخیص تم سیستم
+        function detectSystemTheme() {
+            return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        }
+
+        // بارگذاری اولیه - با سیستم هماهنگ شود
+        document.addEventListener('DOMContentLoaded', function () {
+            darkMode = detectSystemTheme();
+            applyDarkMode();
+            updateAllTexts();
+        });
     </script>
 
 </body>

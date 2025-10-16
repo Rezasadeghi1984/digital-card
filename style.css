@@ -106,7 +106,50 @@
 /* آدرس (اول) */
 .address {
     animation-delay: 0s;
-}  
+}
+
+:root {
+    /* ==================== حالت روشن ==================== */
+    --bg-primary: darkolivegreen; /* زمینه صفحه */
+    --card-bg: #f5f5dc; /* کارت ویزیت */
+    --header-bg: teal; /* هدر */
+    --text-primary: #333; /* متن اصلی */
+    --text-secondary: #4d4dff; /* متن ثانویه */
+    --accent-color: #8b4513; /* آکسانت اصلی */
+    --accent-hover: #654321; /* هاور آکسانت */
+    --name-color: mediumblue; /* رنگ نام */
+    --section-bg: #e8d8b6; /* بخش‌ها */
+    --section-hover: #c08b5a; /* هاور بخش‌ها */
+    --link-color: #2c2c2c;
+    --menu-bg: teal;
+    --menu-text: #2c2c2c;
+    --menu-icon: #2c2c2c;
+    --menu-hover-bg: rgba(0, 128, 128, 0.9);
+    --hamburger-color: #2c2c2c;
+    --business-card-bg: #f5f5dc;
+    --hamburger-color: #2c2c2c;
+    --hamburger-hover-color: var(--accent-hover);
+    /* ==================== حالت دارک ==================== */
+    --dark-bg: #1a1a1a;
+    --dark-card: #2d2d2d;
+    --dark-header: rgba(40, 40, 40, 0.9);
+    --dark-text: #e8e8e8;
+    --dark-text-secondary: #b4b4b4;
+    --dark-accent: #4ec9b0;
+    --dark-accent-hover: #3ab399;
+    --dark-name: #ffffff;
+    --dark-section: #3a3a3a;
+    --dark-section-hover: #4a4a4a;
+    --dark-link-color: #e8e8e8;
+    --dark-menu-bg: rgba(60, 60, 60, 0.95);
+    --dark-menu-text: #e8e8e8;
+    --dark-menu-icon: #4ec9b0;
+    --dark-menu-hover-bg: rgba(78, 201, 176, 0.2);
+    --dark-hamburger-color: #FFFFFF;
+    --dark-business-card-bg: #2d2d2d;
+    --dark-hamburger-color: #FFFFFF;
+    --dark-hamburger-hover-color: var(--dark-accent-hover);
+}
 
 body {
     display: flex;
@@ -115,14 +158,14 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 15px;
-    background-color: darkolivegreen; 
+    background-color: var(--bg-primary);
     box-sizing: border-box;
 }
 
 .business-card {
     width: 95vw;
     max-width: 420px;
-    background-color: #f5f5dc;
+    background-color: var(--business-card-bg);
     border-radius: 15px;
     padding: 10px;
     font-family: 'Dima Sogand new', Tahoma, Geneva, Verdana, sans-serif;
@@ -135,8 +178,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 10px; 
-    background-color: rgba(0, 128, 128, 0.3); /* teal با شفافیت 30% */
+    padding: 8px 10px;
+    background-color: var(--header-bg); /* teal با شفافیت 30% */
     border-radius: 10px;
     margin-bottom: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -170,45 +213,30 @@ body {
 
 .name {
     margin: 0;
-    font-size: 2.0rem; 
-    color: mediumblue;
+    font-size: 2.0rem;
+    color: var(--name-color) ;
     font-weight: bold;
     display: block;
 }
 
 .subtitle {
     margin: 0;
-    font-size: 1.6rem; 
-    color: #4d4dff;
+    font-size: 1.6rem;
+    color: var(--text-secondary);
     display: block;
-    margin-top: 3px; 
+    margin-top: 3px;
 }
 
 .lion-icon {
-    font-size: 2.4rem; 
-    color: #8b4513;
+    font-size: 2.4rem;
+    color: var(--accent-color);
     margin-right: 5px;
 }
 
     .lion-icon:hover {
         transform: scale(1.1);
-        color: #654321;
+        color: var(--accent-hover);
     }
-
-/*  ==================== دکمه شیر ==================== */
-/*.share-icon {
-    font-size: 1.6rem; 
-    color: #2c2c2c;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-    .share-icon:hover {
-        transform: scale(1.1);
-        color: #8b4513;
-        animation: pulse 0.6s ease-in-out;
-    }*/
-
 
 
 /* ==================== منوی همبرگری ==================== */
@@ -216,6 +244,7 @@ body {
     position: relative;
     display: flex;
     align-items: center;
+    z-index: 1001;
 }
 
 /* آیکون همبرگری */
@@ -232,13 +261,17 @@ body {
     .hamburger-icon span {
         height: 3px;
         width: 100%;
-        background-color: #2c2c2c;
+        color: var(--link-color);
+       /* background-color: #2c2c2c;*/
+        background-color: var(--hamburger-color);
         border-radius: 2px;
         transition: all 0.3s ease;
     }
 
     .hamburger-icon:hover span {
-        background-color: #8b4513;
+        /*background-color: var(--accent-hover);*/
+        background-color: var(--hamburger-hover-color);
+        /*color: var(--hamburger-color);*/
     }
 
 /* منوی کشویی */
@@ -247,15 +280,18 @@ body {
     top: calc(100% + 35px);
     left: 0;
     width: 200px;
-    background: rgba(0, 128, 128, 0.3);
-    backdrop-filter: blur(10px);
+    background: var(--menu-bg); /*teaaaaaaaaaaaal*/
+   /* backdrop-filter: blur(5px);*/
+    -webkit-backdrop-filter: blur(5px);
     border-radius: 0 0 10px 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.3s ease;
     z-index: 1000;
+    transform-style: flat;
+    backface-visibility: visible;
 }
 
     /* وقتی منو باز است */
@@ -264,6 +300,7 @@ body {
         visibility: visible;
         transform: translateY(0);
     }
+
 /*////////////////////////////
         /* آیتم‌های منو */
 .menu-item {
@@ -272,9 +309,10 @@ body {
     padding: 15px 20px;
     cursor: pointer;
     transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
     height: 50px;
     box-sizing: border-box;
+    background: var(--menu-bg);
 }
 
     .menu-item:last-child {
@@ -282,21 +320,23 @@ body {
     }
 
     .menu-item:hover {
-        background: rgba(0, 128, 128, 0.2);
+        background: var(--menu-hover-bg);
         animation: pulse 0.6s ease-in-out;
     }
 
     .menu-item i {
         width: 20px;
         margin-left: 10px;
-        color: #2c2c2c;
+        color: var(--menu-icon);
+        filter: drop-shadow(0 1px 1px rgba(255,255,255,0.8));
     }
 
     .menu-item span {
         font-family: 'Vazir', Tahoma, sans-serif;
         font-size: 1rem;
-        color: #2c2c2c;
+        color: var(--menu-text);
         font-weight: bold;
+        text-shadow: 0 1px 2px rgba(255,255,255,0.8);
     }
 
 /*  ==================== لوگو ==================== */
@@ -322,7 +362,7 @@ body {
     text-align: center;
     font-family: 'Dima Sogand new', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.5rem;
-    color: #333;
+    color: var(--text-primary);
     margin: 0px 0;
     font-weight: bold;
     animation: float 3s ease-in-out infinite;
@@ -339,7 +379,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #e8d8b6;
+    background-color: var(--section-bg);
     padding: 5px 25px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -352,28 +392,28 @@ body {
 .phone-link {
     font-family: 'Vazir', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.5rem;
-    color: #2c2c2c;
+    color: var(--link-color);
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s ease;
 }
 
     .phone-link:hover {
-        color: #8b4513;
+        color: var(--accent-color);
         transform: scale(1.05);
     }
 
 /*  ==================== ذخیره شماره ==================== */
 .save-contact {
     font-size: 1.8rem;
-    color: #2c2c2c;
+    color: var(--link-color);
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
     .save-contact:hover {
         transform: scale(1.2);
-        color: #8b4513;
+        color: var(--accent-color);
         animation: pulse 0.6s ease-in-out;
     }
 
@@ -388,7 +428,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #e8d8b6;
+    background-color: var(--section-bg);
     padding: 18px 15px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -421,8 +461,6 @@ body {
     animation: slideIn 1.4s ease-o;
 }
 
-
-
 /*  ==================== وبسایت ==================== */
 .website-section {
     display: flex;
@@ -433,10 +471,10 @@ body {
 .website-link {
     font-family: 'Vazir', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.3rem;
-    color: #2c2c2c;
+    color: var(--link-color);
     text-decoration: none;
     font-weight: bold;
-    background-color: #e8d8b6;
+    background-color: var(--section-bg);
     padding: 16px 25px;
     border-radius: 10px;
     transition: all 0.3s ease;
@@ -452,8 +490,8 @@ body {
 }
 
     .website-link:hover {
-        color: #fff;
-        background-color: #c08b5a;
+        color: var(--accent-color);
+        background-color: var(--section-hover);
         transform: scale(1.03);
     }
 
@@ -467,10 +505,10 @@ body {
 .address-link {
     font-family: 'Vazir', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.1rem;
-    color: #2c2c2c;
+    color: var(--link-color);
     text-decoration: none;
     font-weight: bold;
-    background-color: #e8d8b6;
+    background-color: var(--section-bg);
     padding: 16px 25px;
     border-radius: 10px;
     transition: all 0.3s ease;
@@ -486,8 +524,8 @@ body {
 }
 
     .address-link:hover {
-        color: #fff;
-        background-color: #c08b5a;
+        color: var(--accent-color);
+        background-color: var(--section-hover);
         transform: scale(1.03);
     }
 
@@ -503,6 +541,10 @@ body {
     height: 220px;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.dark-qr {
+    display: none;
 }
 
 /* کانتینر کیوآرکد و دکمه زبان */
@@ -526,7 +568,7 @@ body {
 }
 
 .lang-btn {
-    background-color: #8b4513;
+    background-color: var(--accent-color);
     color: white;
     border: none;
     padding: 8px 10px;
@@ -537,13 +579,104 @@ body {
     transition: all 0.3s ease;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     white-space: nowrap;
+    display: none;
 }
 
+
+
     .lang-btn:hover {
-        background-color: #654321;
+        background-color: var(--accent-hover);
         transform: scale(1.05);
     }
+/*==================================================================================================*/
+/* ==================== کارت 3D ==================== */
+/* ==================== کارت 3D ==================== */
+/* ==================== کارت 3D ==================== */
+.card-3d-container {
+    perspective: 1000px;
+    width: 95vw;
+    max-width: 420px;
+    margin: 20px auto;
+    cursor: pointer;
+}
 
+.card-3d {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+}
+
+    .card-3d.flipped {
+        transform: rotateY(180deg);
+    }
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background: #f5f5dc;
+}
+
+    /* مطمئن شو business-card استایل‌های اصلی رو داره */
+    .card-front .business-card,
+    .card-back .business-card {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+/* استایل بخش خدمات در پشت کارت */
+.services-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.experience-badge {
+    background: linear-gradient(45deg, #8b4513, #654321);
+    color: white;
+    padding: 12px;
+    border-radius: 25px;
+    font-family: 'Vazir', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.service-item {
+    background: var(--section-bg);
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 10px;
+    font-family: 'Vazir', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--link-color);
+    transition: all 0.3s ease;
+}
+
+    .service-item:hover {
+        background: var(--section-hover);
+        transform: translateX(-5px);
+    }
+
+.flip-hint {
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Vazir', sans-serif;
+    font-size: 0.9rem;
+    color: #8b4513;
+    opacity: 0.7;
+}
 
 /*  ==================== رسپانسیو جهت نمایش در انواع دستگاه ==================== */
 @media (max-width: 360px) {
