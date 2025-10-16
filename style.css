@@ -244,7 +244,7 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-    z-index: 1001;
+    z-index: 100;
 }
 
 /* آیکون همبرگری */
@@ -607,6 +607,7 @@ body {
     min-height: 500px;
     transform-style: preserve-3d;
     transition: transform 0.8s ease;
+    z-index:200;
 }
 
     .card-3d.flipped {
@@ -620,6 +621,7 @@ body {
     height: 100%;
     backface-visibility: hidden;
     border-radius: 15px;
+    min-height: 500px;
 }
 
 .card-back {
