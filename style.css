@@ -160,8 +160,9 @@ body {
     padding: 15px;
     background-color: var(--bg-primary);
     box-sizing: border-box;
-    padding: 0 !important; /* این خط رو پیدا کن */
-    margin: 0 !important; /* و این رو */
+    padding: 0 !important; 
+    margin: 0 !important; 
+    padding-top: env(safe-area-inset-top) !important; /* برای ناچ آیفون */
 }
 
 .business-card {
@@ -602,6 +603,7 @@ body {
     cursor: pointer;
     margin-top: 0;
     padding-top: 0;
+    margin-top: env(safe-area-inset-top);
 }
 
 .card-3d {
