@@ -592,16 +592,26 @@
                 //حذف کامپوننتهای پایین
                 document.querySelector('.hamburger-menu').style.display = 'none';
                 document.querySelector('.qrcode-language-container').style.display = 'none';
-                document.querySelector('.address-section').style.display = 'none';
-                document.querySelector('.website-section').style.display = 'none';
+                //document.querySelector('.address-section').style.display = 'none';
+                //document.querySelector('.website-section').style.display = 'none';
+                //document.querySelector('.social-section').style.display = 'none';
+                //document.querySelector('.phone-section').style.display = 'none';
+                //document.querySelectorAll('.phone-item').forEach(item => {
+                //    item.style.display = 'none';
+               // });
             } else {
                 card3d.style.transform = 'rotateY(0deg) scale(1.02)';
                 card3d.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.3)';
                 //نمایش کامپوننتهای پایین
                 document.querySelector('.hamburger-menu').style.display = 'flex';
-                document.querySelector('.qrcode-language-container').style.display = 'flex';
-                document.querySelector('.address-section').style.display = 'flex';
-                document.querySelector('.website-section').style.display = 'flex';
+                document.querySelector('.qrcode-language-container').style.display = 'flex'
+                //document.querySelector('.address-section').style.display = 'flex';
+                //document.querySelector('.website-section').style.display = 'flex';
+                //document.querySelector('.social-section').style.display = 'flex';
+                //document.querySelector('.phone-section').style.display = 'flex';
+                //document.querySelectorAll('.phone-item').forEach(item => {
+                //    item.style.display = 'flex';
+                // });         
             }
 
             // بازگشت به حالت نرمال بعد از انیمیشن
